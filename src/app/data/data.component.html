@@ -57,8 +57,18 @@
             <td style="padding-left: 50px ;" data-label="#">
             <input type="checkbox" style="display: flex; position: absolute; margin: 3px -2rem;">
             <span> {{i+1}}</span></td>
-            <td data-label="Actions" class="action-img">
-              <p>{{product.asin}}</p>
+            <td data-label="Actions">
+                <div style="display: flex; gap: 5px">
+                    <div>
+                        <img [src]='product.imageUrl' alt="img" height="50px" width="50px"/>
+                    </div>
+                    <div>
+                        <p style="margin: 0px;">{{product.title}}</p>
+                        <p style="color: orange;">{{product.asin}}</p>
+                    </div>
+                  
+                </div>
+                
             </td>
             <td data-label="Brand">
                 {{product.brand}}

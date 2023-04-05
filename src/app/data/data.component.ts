@@ -42,4 +42,5 @@ interface Product {
   fbaFee: string;
   sale: number;
   brand: string;
+  imageUrl: string;
 }
