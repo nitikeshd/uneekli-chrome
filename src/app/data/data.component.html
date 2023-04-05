@@ -5,24 +5,30 @@
     <div *ngIf="error" style="display: grid;place-items: center;height: 90vh;">
         <h1>Please try again after some time.</h1>
     </div>
-    
+
     <table id="customers" *ngIf="!loader">
         <tr>
             <th style="font-size: 22px;
             font-weight: 500;
-            color: #0076ff;
+            /* color: #0076ff; */
+            color: #003166;
             padding-left: 40px; ">
-            <div style="display: flex;">
-                <p>#</p>
-                <img src="assets/img/Group 3.png" style="float: right;
+                <div style="display: flex;">
+                    <p>#</p>
+                    <img src="assets/img/Group 3.png" style="float: right;
                      padding-right: 7px;
                      width: 1rem; opacity: 0.7;">
-                     
-            </div>
-                </th>
+
+                </div>
+            </th>
             <th>
                 <div style="display: flex; justify-content: space-between;">
-                    <p>PRODUCT NAME</p><img src="assets/img/Group 3.png" style="float: right;
+                    <p>Actions</p>
+                </div>
+            </th>
+            <th>
+                <div style="display: flex; justify-content: space-between;">
+                    <p>Product Name</p><img src="assets/img/Group 3.png" style="float: right;
                 padding-right: 7px;
                 width: 1rem;
                 opacity: 0.7;">
@@ -35,7 +41,7 @@
                 width: 1rem;
                 opacity: 0.7;">
                 </div>
-                </th>
+            </th>
             <th>
                 <div style="display: flex; justify-content: space-between;">
                     <p>Title</p> <img src="assets/img/Group 3.png" style="float: right;
@@ -43,15 +49,15 @@
                 width: 1rem;
                 opacity: 0.7;">
                 </div>
-                </th>
+            </th>
             <th>
                 <div style="display: flex; justify-content: space-between;">
-                    <p>category</p> <img src="assets/img/Group 3.png" style="float: right;
+                    <p>Category</p> <img src="assets/img/Group 3.png" style="float: right;
                     padding-right: 7px;
                     width: 1rem;
                     opacity: 0.7;">
                 </div>
-               </th>
+            </th>
             <th>
                 <div style="display: flex; justify-content: space-between;">
                     <p>BuyBox</p> <img src="assets/img/Group 3.png" style="float: right;
@@ -59,38 +65,53 @@
                 width: 1rem;
                 opacity: 0.7;">
                 </div>
-                </th>
-            <th> Sales</th>
+            </th>
+            <th>
+                Sales
+            </th>
             <th>
                 <div style="display: flex; justify-content: space-between;">
-                    <p>price</p> <img src="assets/img/Group 3.png" style="float: right;
+                    <p>Price</p> <img src="assets/img/Group 3.png" style="float: right;
                 padding-right: 7px;
                 width: 1rem;
                 opacity: 0.7;">
                 </div>
-                </th>
-            <th>FBA Fee
             </th>
-            <th>sales</th>
+            <th>Fba Fee
+            </th>
+            <th>Sales</th>
+            <th>Shipping</th>
+            <th>Category Bsr</th>
+            <th>Last Year Sales</th>
+            <th>Sales Period</th>
+            <th>Storage Fee</th>
+
         </tr>
         <tr *ngFor="let product of tableData; let i = index">
-            
+
             <td style="padding-left: 50px ;" data-label="#">
-            <input type="checkbox" style="display: flex; position: absolute; margin: 3px -2rem;">
-            <span> {{i+1}}</span></td>
+                <input type="checkbox" style="display: flex; position: absolute; margin: 3px -2rem;">
+                <span> {{i+1}}</span></td>
+            <td>
+                <img src="assets/img/add1.png">
+                <img src="assets/img/verified1.png">
+                <img src="assets/img/share1.png">
+
+            </td>
             <td data-label="Actions">
                 <div style="display: flex; gap: 5px">
                     <div>
-                        <img [src]='product.imageUrl' alt="img" height="50px" width="50px"/>
+                        <img [src]='product.imageUrl' alt="img" height="50px" width="50px" />
                     </div>
                     <div>
                         <p style="margin: 0px;">{{product.title}}</p>
                         <p style="color: orange;">{{product.asin}}</p>
                     </div>
-                  
+
                 </div>
-                
+
             </td>
+
             <td data-label="Brand">
                 {{product.brand}}
             </td>
@@ -101,6 +122,12 @@
             <td data-label="Price"><small style="font-size: 10px; opacity: 0.9;">AED</small><sub>{{product.price}}</sub></td>
             <td data-label="fba">{{product.fbaFee}}</td>
             <td data-label="sales"><small style="font-size: 10px; opacity: 0.9;">AED</small><sub>{{product.sale}}</sub></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <!-- <tr style="font-family:poppins ; ">
             <td style=" padding-left:50px ;" data-label="#">
@@ -270,11 +297,11 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col" >
-            <img src="assets/img/logo copy.png" alt="" id="footer-img">
+            <div class="col">
+                <img src="assets/img/logo copy.png" alt="" id="footer-img">
             </div>
             <div class="col">
-                    <button type="btn" id="data-btn">Load more Result</button>
+                <button type="btn" id="data-btn">Load more Result</button>
             </div>
         </div>
     </div>

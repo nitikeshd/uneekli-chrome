@@ -1,0 +1,29 @@
+element.style {
+    background-color: white;
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: 1em;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: 0em;
+}
+
+label {
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 200px;
+}
