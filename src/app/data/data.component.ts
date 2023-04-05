@@ -39,8 +39,9 @@ interface Product {
   buyBox: string;
   sales: boolean;
   category: string;
-  fbaFee: string;
+  fbaFee: number;
   sale: number;
   brand: string;
   imageUrl: string;
+  netProfit: number;
 }
