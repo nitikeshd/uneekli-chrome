@@ -1,5 +1,5 @@
 <div class="home-content">
-    <div style="background-color: #003166; height: 40px; color: white; padding-left: 40px;">
+    <div style="background-color: #003166; height: 40px; color: white; padding-left: 40px; width: 100vw;">
         <h2>Uneekli</h2>
     </div>
     <div class="overview-boxes" style="font-size: poppins;">
@@ -52,7 +52,7 @@
         <div>
             <div class="search-container">
                 <div class="search-container">
-                    <input style="width: 275px;" type="text" placeholder="   &nbsp;&nbsp;&nbsp;Search" class="search-input">
+                    <input style="width: 275px; padding-left: 30px;" type="text" placeholder="Search" class="search-input" (keydown.enter)="updateUrlParam($event)">
                   </div>
                 <!-- <input type="text" style="width: 275px;" placeholder="Search by name or asin "> -->
             </div>
