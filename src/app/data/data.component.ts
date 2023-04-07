@@ -44,4 +44,13 @@ interface Product {
   brand: string;
   imageUrl: string;
   netProfit: number;
+  rating: number;
+  totalReviews: number;
+  sponsored: boolean;
+  amazonChoice: boolean;
+  bestSeller: boolean;
+  amazonPrime: boolean;
+  itemAvailable: boolean;
+  lPosition: number;
+  gPosition: number;
 }

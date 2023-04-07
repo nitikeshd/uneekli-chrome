@@ -81,15 +81,23 @@
             </th>
             <th>Discount</th>
             <th>Net Profit</th>
+            <th>Rating</th>
+            <th>No. Reviews</th>
+            <th>Amazon Choice</th>
+            <th>Best Seller</th>
+            <th>Prime</th>
+            <th>L.Position</th>
+            <th>G.Position</th>
+            <th>Item Available</th>
+
             <th>C Bsr</th>
             <th>LYS</th>
             <th>SP</th>
             <th>Storage Fee</th>
-
+           
             <th>Mo. Sales</th>
             <th>D. Sales</th>
             <th>Mo Revenue</th>
-            <th>Rating</th>
             <th>Rank</th>
             <th>LQS</th>
             <th>Seller Type</th>
@@ -97,10 +105,7 @@
             <th>Dimensions</th>
             <th>Weight</th>
             <th>Score</th>
-            <th>L.Position</th>
-            <th>G.Position</th>
-            <th>Amazon Choice</th>
-            <th>Best Seller</th>
+            
             
         </tr>
         <tr *ngFor="let product of tableData; let i = index">
@@ -138,11 +143,14 @@
             <td data-label="fba"><small style="font-size: 10px; opacity: 0.9;">AED&nbsp;</small>{{product.fbaFee}}</td>
             <td data-label="sales"><small style="font-size: 10px; opacity: 0.9;">AED&nbsp;</small>{{product.sale}}</td>
             <td><small style="font-size: 10px; opacity: 0.9;">AED&nbsp;</small>{{product.netProfit}}</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <td>{{product.rating}}</td>
+            <td>{{product.totalReviews}}</td>
+            <td>{{product.amazonChoice}}</td>
+            <td>{{product.bestSeller}}</td>
+            <td>{{product.amazonPrime}}</td>
+            <td>{{product.lPosition}}</td>
+            <td>{{product.gPosition}}</td>
+            <td>{{product.itemAvailable}}</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
