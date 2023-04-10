@@ -1,48 +1,62 @@
-<div class="data " style="margin-top: 20px;overflow-x: auto;">
-    <div *ngIf="loader" style="display: grid;place-items: center;height: 90vh;">
-        <div class="loader"></div>
-    </div>
-    <div *ngIf="error" style="display: grid;place-items: center;height: 90vh;">
-        <h1>Please try again after some time.</h1>
-    </div>
+<div
+  class="data"
+  style="
+    margin-top: 20px;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 170px);
+  "
+>
+  <div *ngIf="loader" style="display: grid; place-items: center; height: 90vh">
+    <div class="loader"></div>
+  </div>
+  <div *ngIf="error" style="display: grid; place-items: center; height: 90vh">
+    <h1>Please try again after some time.</h1>
+  </div>
 
-    <table id="customers" *ngIf="!loader">
-        <tr>
-            <th style="font-size: 22px;
-            font-weight: 500;
-            /* color: #0076ff; */
-            color: #003166;
-            padding-left: 40px; ">
-                <div style="display: flex;">
-                    <p>#</p>
-                    <img src="assets/img/Group 3.png" style="float: right;
-                     padding-right: 7px;
-                     width: 1rem; opacity: 0.7;">
-
-                </div>
-            </th>
-            <th>
-                <div style="display: flex; justify-content: space-between;">
-                    <p>Actions</p>
-                </div>
-            </th>
-            <th>
-                <div style="display: flex; justify-content: space-between;">
-                    <p>Product Name</p><img src="assets/img/Group 3.png" style="float: right;
-                padding-right: 7px;
-                width: 1rem;
-                opacity: 0.7;">
-                </div>
-            </th>
-            <th>
-                <div style="display: flex; justify-content: space-between;">
-                    <p>Brand</p> <img src="assets/img/Group 3.png" style="float: right;
-                padding-right: 7px;
-                width: 1rem;
-                opacity: 0.7;">
-                </div>
-            </th>
-            <!-- <th>
+  <table id="customers" *ngIf="!loader">
+    <tr>
+      <th
+        style="
+          font-size: 22px;
+          font-weight: 500;
+          /* color: #0076ff; */
+          color: #003166;
+          padding-left: 40px;
+        "
+      >
+        <div style="display: flex">
+          <p>#</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
+          />
+        </div>
+      </th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Actions</p>
+        </div>
+      </th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Product Name</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
+          />
+        </div>
+      </th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Brand</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
+          />
+        </div>
+      </th>
+      <!-- <th>
                 <div style="display: flex; justify-content: space-between;">
                     <p>Title</p> <img src="assets/img/Group 3.png" style="float: right;
                 padding-right: 7px;
@@ -50,15 +64,16 @@
                 opacity: 0.7;">
                 </div>
             </th> -->
-            <th>
-                <div style="display: flex; justify-content: space-between;">
-                    <p>Category</p> <img src="assets/img/Group 3.png" style="float: right;
-                    padding-right: 7px;
-                    width: 1rem;
-                    opacity: 0.7;">
-                </div>
-            </th>
-            <!-- <th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Category</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
+          />
+        </div>
+      </th>
+      <!-- <th>
                 <div style="display: flex; justify-content: space-between;">
                     <p>BuyBox</p> <img src="assets/img/Group 3.png" style="float: right;
                 padding-right: 7px;
@@ -66,118 +81,134 @@
                 opacity: 0.7;">
                 </div>
             </th> -->
-            <th>
-                Discounted
-            </th>
-            <th>
-                <div style="display: flex; justify-content: space-between;">
-                    <p>Price</p> <img src="assets/img/Group 3.png" style="float: right;
-                padding-right: 7px;
-                width: 1rem;
-                opacity: 0.7;">
-                </div>
-            </th>
-            <th>Fba Fee
-            </th>
-            <th>Discount</th>
-            <th>Net Profit</th>
-            <th>Rating</th>
-            <th>No. Reviews</th>
-            <th>Amazon Choice</th>
-            <th>Best Seller</th>
-            <th>Prime</th>
-            <th>L.Position</th>
-            <th>G.Position</th>
-            <th>Item Available</th>
+      <th>Discounted</th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Price</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
+          />
+        </div>
+      </th>
+      <th>Fba Fee</th>
+      <th>Discount</th>
+      <th>Net Profit</th>
+      <th>Rating</th>
+      <th>No. Reviews</th>
+      <th>Amazon Choice</th>
+      <th>Best Seller</th>
+      <th>Prime</th>
+      <th>L.Position</th>
+      <th>G.Position</th>
+      <th>Item Available</th>
 
-            <th>C Bsr</th>
-            <th>LYS</th>
-            <th>SP</th>
-            <th>Storage Fee</th>
-           
-            <th>Mo. Sales</th>
-            <th>D. Sales</th>
-            <th>Mo Revenue</th>
-            <th>Rank</th>
-            <th>LQS</th>
-            <th>Seller Type</th>
-            <th>Sellers</th>
-            <th>Dimensions</th>
-            <th>Weight</th>
-            <th>Score</th>
-            
-            
-        </tr>
-        <tr *ngFor="let product of tableData; let i = index">
+      <th>C Bsr</th>
+      <th>LYS</th>
+      <th>SP</th>
+      <th>Storage Fee</th>
 
-            <td style="padding-left: 50px ;" data-label="#">
-                <input type="checkbox" style="display: flex; position: absolute; margin: 3px -2rem;">
-                <span> {{i+1}}</span></td>
-            <td style="display: flex; gap: 2px">
-                <img style="mix-blend-mode: multiply;" src="assets/img/add1.png">
-                <img style="mix-blend-mode: multiply;" src="assets/img/verified1.png">
-                <img style="mix-blend-mode: multiply;" src="assets/img/share1.png">
+      <th>Mo. Sales</th>
+      <th>D. Sales</th>
+      <th>Mo Revenue</th>
+      <th>Rank</th>
+      <th>LQS</th>
+      <th>Seller Type</th>
+      <th>Sellers</th>
+      <th>Dimensions</th>
+      <th>Weight</th>
+      <th>Score</th>
+    </tr>
+    <tr *ngFor="let product of tableData; let i = index">
+      <td style="padding-left: 50px" data-label="#">
+        <input type="checkbox" style="display: flex; margin: 3px -2rem" />
+        <span> {{ i + 1 }}</span>
+      </td>
+      <td style="display: flex; gap: 2px">
+        <img style="mix-blend-mode: multiply" src="assets/img/add1.png" />
+        <img style="mix-blend-mode: multiply" src="assets/img/verified1.png" />
+        <img style="mix-blend-mode: multiply" src="assets/img/share1.png" />
+      </td>
+      <td data-label="Actions">
+        <div style="display: flex; gap: 5px">
+          <div>
+            <img
+              style="mix-blend-mode: multiply"
+              [src]="product.imageUrl"
+              alt="img"
+              height="50px"
+              width="50px"
+            />
+          </div>
+          <div>
+            <a
+              [href]="'https://www.amazon.ae/dp/' + product.asin"
+              target="_blank"
+              ><p style="margin: 0px">
+                {{ product.title.substring(0, 25) }}
+              </p></a
+            >
+            <p style="color: #003166">{{ product.asin }}</p>
+          </div>
+        </div>
+      </td>
 
-            </td>
-            <td data-label="Actions">
-                <div style="display: flex; gap: 5px">
-                    <div>
-                        <img style="mix-blend-mode: multiply;" [src]='product.imageUrl' alt="img" height="50px" width="50px" />
-                    </div>
-                    <div>
-                        <p style="margin: 0px;">{{product.title.substring(0, 25)}}</p>
-                        <p style="color: #003166;">{{product.asin}}</p>
-                    </div>
-
-                </div>
-
-            </td>
-
-            <td data-label="Brand">
-                {{product.brand}}
-            </td>
-            <td data-label="Category">{{product.category.substring(0, 25)}}</td>
-            <!-- <td data-label="Buy Box">{{product.buyBox}}</td> -->
-            <td data-label="Sales">{{product.sales}}</td>
-            <td data-label="Price"><small style="font-size: 10px; opacity: 0.9;">AED&nbsp;</small>{{product.price}}</td>
-            <td data-label="fba"><small style="font-size: 10px; opacity: 0.9;">AED&nbsp;</small>{{product.fbaFee}}</td>
-            <td data-label="sales"><small style="font-size: 10px; opacity: 0.9;">AED&nbsp;</small>{{product.sale}}</td>
-            <td><small style="font-size: 10px; opacity: 0.9;">AED&nbsp;</small>{{product.netProfit}}</td>
-            <td>{{product.rating}}</td>
-            <td>{{product.totalReviews}}</td>
-            <td>{{product.amazonChoice}}</td>
-            <td>{{product.bestSeller}}</td>
-            <td>{{product.amazonPrime}}</td>
-            <td>{{product.lPosition}}</td>
-            <td>{{product.gPosition}}</td>
-            <td>{{product.itemAvailable}}</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        
-    </table>
+      <td data-label="Brand">
+        {{ product.brand }}
+      </td>
+      <td data-label="Category">{{ product.category.substring(0, 25) }}</td>
+      <!-- <td data-label="Buy Box">{{product.buyBox}}</td> -->
+      <td data-label="Sales">{{ product.sales }}</td>
+      <td data-label="Price">
+        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        >{{ product.price }}
+      </td>
+      <td data-label="fba">
+        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        >{{ product.fbaFee }}
+      </td>
+      <td data-label="sales">
+        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        >{{ product.sale }}
+      </td>
+      <td>
+        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        >{{ product.netProfit }}
+      </td>
+      <td>{{ product.rating }}</td>
+      <td>{{ product.totalReviews }}</td>
+      <td>{{ product.amazonChoice }}</td>
+      <td>{{ product.bestSeller }}</td>
+      <td>{{ product.amazonPrime }}</td>
+      <td>{{ product.lPosition }}</td>
+      <td>{{ product.gPosition }}</td>
+      <td>{{ product.itemAvailable }}</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </table>
 </div>
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <img src="assets/img/logo copy.png" alt="" id="footer-img">
-            </div>
-            <div class="col">
-                <button type="btn" id="data-btn">Load more Result</button>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="assets/img/logo copy.png" alt="" id="footer-img" />
+      </div>
+      <div class="col">
+        <button type="btn" id="data-btn">Load more Result</button>
+      </div>
     </div>
+  </div>
 </footer>

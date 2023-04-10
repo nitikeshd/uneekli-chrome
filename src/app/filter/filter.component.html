@@ -1,0 +1,39 @@
+<div style="width: 60vw; padding: 20px">
+  <h2>Filters</h2>
+  <mat-divider></mat-divider>
+  <div class="filter-container" style="padding: 20px 10px">
+    <div *ngFor="let field of filterField">
+      <label for="" class="form-label" id="label"
+        >{{ field.name }}
+        <img
+          src="https://img.icons8.com/ios/40/null/info--v1.png"
+          width="16px"
+          class="img-logo"
+      /></label>
+      <div class="filter-container">
+        <!-- <input
+          *ngFor="let child of field.children"
+          [type]="child.type"
+          class="form-control"
+          [placeholder]="child.name"
+        /> -->
+        <mat-form-field *ngFor="let child of field.children">
+          <mat-label>{{ child.name }}</mat-label>
+          <input matInput [type]="child.type" [(ngModel)]="child.value" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div style="display: flex; margin-top: 20px; gap: 10px">
+    <button mat-stroked-button style="margin-left: auto">Basic</button>
+    <button
+      mat-flat-button
+      color="primary"
+      style="margin-right: 10px"
+      (click)="filterData()"
+    >
+      Primary
+    </button>
+  </div>
+</div>

@@ -1,22 +1,33 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { of, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Subject, of, throwError } from 'rxjs';
+import { catchError, takeUntil } from 'rxjs/operators';
+import { CommonService } from '../service/common.service';
+import { FilterField } from '../filter/filter.component';
 
 @Component({
   selector: 'app-data',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.css'],
 })
-export class DataComponent implements OnInit {
+export class DataComponent implements OnInit, OnDestroy {
   tableData: Product[] = [];
   loader: boolean = false;
   error: boolean = false;
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  destroySub$ = new Subject();
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private commonService: CommonService
+  ) {}
   ngOnInit(): void {
     const keyword = this.route.snapshot.queryParamMap.get('key');
     this.loader = true;
+    this.filterData();
     this.http
       .get<Product[]>(`http://localhost:3000/search/${keyword}`)
       .pipe(
@@ -29,6 +40,25 @@ export class DataComponent implements OnInit {
         this.tableData = data;
         this.loader = false;
       });
+  }
+
+  filterData() {
+    this.commonService.filterSubject$
+      .pipe(takeUntil(this.destroySub$))
+      .subscribe((filters: Map<string, number[]>) => {
+        // const netProfit = filters.filter((f) => f.name === 'Net Profit')[0];
+        console.log(filters);
+        // this.tableData.filter(
+        //   (data) =>
+        //     data.netProfit > Number(netProfit.children[0].value) &&
+        //     data.netProfit < Number(netProfit.children[1].value)
+        // );
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroySub$.next('destroy');
+    this.destroySub$.complete();
   }
 }
 
