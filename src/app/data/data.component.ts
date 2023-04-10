@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, of, throwError } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
@@ -15,7 +21,9 @@ import { FilterField } from '../filter/filter.component';
   styleUrls: ['./data.component.css'],
 })
 export class DataComponent implements OnInit, OnDestroy {
+  @Output() filterToggle: EventEmitter<string> = new EventEmitter<string>();
   tableData: Product[] = [];
+  tableDataFiltered: Product[] = [];
   loader: boolean = false;
   error: boolean = false;
   destroySub$ = new Subject();
@@ -38,6 +46,7 @@ export class DataComponent implements OnInit, OnDestroy {
       )
       .subscribe((data) => {
         this.tableData = data;
+        this.tableDataFiltered = this.tableData;
         this.loader = false;
       });
   }
@@ -46,13 +55,23 @@ export class DataComponent implements OnInit, OnDestroy {
     this.commonService.filterSubject$
       .pipe(takeUntil(this.destroySub$))
       .subscribe((filters: Map<string, number[]>) => {
-        // const netProfit = filters.filter((f) => f.name === 'Net Profit')[0];
-        console.log(filters);
-        // this.tableData.filter(
-        //   (data) =>
-        //     data.netProfit > Number(netProfit.children[0].value) &&
-        //     data.netProfit < Number(netProfit.children[1].value)
-        // );
+        this.tableDataFiltered = this.tableData;
+        const keys = [...filters.keys()];
+
+        if (keys.length < 0) {
+          return;
+        }
+
+        this.tableDataFiltered = this.tableData.filter((data) => {
+          let boolean = true;
+          keys.forEach((key) => {
+            boolean =
+              data[key] > filters.get(key)[0] &&
+              data[key] < filters.get(key)[1];
+          });
+          return boolean;
+        });
+        this.filterToggle.emit('filterToggle');
       });
   }
 

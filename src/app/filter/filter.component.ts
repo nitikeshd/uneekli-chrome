@@ -19,11 +19,6 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
     this.filterField = [
       {
-        name: 'Date First Available',
-        type: 'dateTime',
-        children: [],
-      },
-      {
         name: 'Price',
         key: 'price',
         type: 'text',
@@ -71,7 +66,7 @@ export class FilterComponent implements OnInit {
       {
         name: 'Fba Fees',
         type: 'text',
-        key: 'feaFee',
+        key: 'fbaFee',
         children: [
           {
             name: 'Minimum',
@@ -208,6 +203,14 @@ export class FilterComponent implements OnInit {
           Number(filter.children[1].value) || Number.MAX_SAFE_INTEGER,
         ]);
       });
+    this.commonService.filterSubject$.next(filterMap);
+  }
+
+  resetFilter() {
+    this.filterField.forEach((filter) => {
+      filter.children.forEach((child) => (child.value = null));
+    });
+    const filterMap = new Map<string, number[]>();
     this.commonService.filterSubject$.next(filterMap);
   }
 }

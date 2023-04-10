@@ -4,7 +4,7 @@
     margin-top: 20px;
     overflow-x: auto;
     overflow-y: auto;
-    max-height: calc(100vh - 170px);
+    height: calc(100vh - 170px);
   "
 >
   <div *ngIf="loader" style="display: grid; place-items: center; height: 90vh">
@@ -119,10 +119,12 @@
       <th>Weight</th>
       <th>Score</th>
     </tr>
-    <tr *ngFor="let product of tableData; let i = index">
-      <td style="padding-left: 50px" data-label="#">
-        <input type="checkbox" style="display: flex; margin: 3px -2rem" />
-        <span> {{ i + 1 }}</span>
+    <tr *ngFor="let product of tableDataFiltered; let i = index">
+      <td data-label="#">
+        <div style="display: flex; gap: 10px">
+            <input type="checkbox"/>
+            <label>{{ i + 1 }}</label>
+        </div>
       </td>
       <td style="display: flex; gap: 2px">
         <img style="mix-blend-mode: multiply" src="assets/img/add1.png" />
