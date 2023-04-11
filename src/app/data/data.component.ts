@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {
   Component,
   EventEmitter,
+  Input,
   OnDestroy,
   OnInit,
   Output,
@@ -12,6 +13,7 @@ import { Subject, of, throwError } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
 import { CommonService } from '../service/common.service';
 import { FilterField } from '../filter/filter.component';
+import { OverallProductDetails } from '../home/home.component';
 
 @Component({
   selector: 'app-data',
@@ -22,6 +24,8 @@ import { FilterField } from '../filter/filter.component';
 })
 export class DataComponent implements OnInit, OnDestroy {
   @Output() filterToggle: EventEmitter<string> = new EventEmitter<string>();
+  @Input()
+  overallProductDetails: OverallProductDetails;
   tableData: Product[] = [];
   tableDataFiltered: Product[] = [];
   loader: boolean = false;
@@ -48,6 +52,17 @@ export class DataComponent implements OnInit, OnDestroy {
         this.tableData = data;
         this.tableDataFiltered = this.tableData;
         this.loader = false;
+        let totalPrice = 0;
+        let totalRating = 0;
+        this.tableData.forEach((product) => {
+          totalPrice += Number(product.price);
+          totalRating += Number(product.rating);
+        });
+        this.overallProductDetails.avgPrice = (
+          totalPrice / this.tableData.length
+        ).toFixed(2);
+        this.overallProductDetails.avgRatting =
+          totalRating / this.tableData.length;
       });
   }
 

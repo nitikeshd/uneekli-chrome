@@ -20,9 +20,18 @@ import { KeywordCloudComponent } from '../keyword-cloud/keyword-cloud.component'
 })
 export class HomeComponent {
   isFilter = true;
+  overallProductDetails = new OverallProductDetails();
   constructor() {}
   updateUrlParam(event) {
     const value = event.target.value;
     window.location.search = `?key=${value}`;
   }
+}
+
+export class OverallProductDetails {
+  totalRevenue: number = 0;
+  avgRevenue: number = 0;
+  avgBsr: number = 0;
+  avgPrice: string = '';
+  avgRatting: number = 0;
 }
