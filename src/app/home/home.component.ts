@@ -3,15 +3,23 @@ import { CommonModule } from '@angular/common';
 import { materialModules } from '../material/material.mosule';
 import { DataComponent } from '../data/data.component';
 import { FilterComponent } from '../filter/filter.component';
+import { KeywordCloudComponent } from '../keyword-cloud/keyword-cloud.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, materialModules, DataComponent, FilterComponent],
+  imports: [
+    CommonModule,
+    materialModules,
+    DataComponent,
+    FilterComponent,
+    KeywordCloudComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  isFilter = true;
   constructor() {}
   updateUrlParam(event) {
     const value = event.target.value;

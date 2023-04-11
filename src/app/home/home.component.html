@@ -1,6 +1,7 @@
 <mat-drawer-container class="example-container" hasBackdrop="true">
   <mat-drawer #drawer mode="over" position="end">
-    <app-filter></app-filter>
+    <app-filter *ngIf="isFilter"></app-filter>
+    <app-keyword-cloud *ngIf="!isFilter"></app-keyword-cloud>
   </mat-drawer>
   <mat-drawer-content>
     <div class="home-content">
@@ -105,11 +106,14 @@
             <!-- <input type="text" style="width: 275px;" placeholder="Search by name or asin "> -->
           </div>
         </div>
-        <div (click)="drawer.toggle()" style="cursor: pointer">
+        <div (click)="isFilter = true; drawer.toggle()" style="cursor: pointer">
           <img src="assets/img/filter-filled-tool-symbol.png" />
           <span>Filter Results</span>
         </div>
-        <div>
+        <div
+          (click)="isFilter = false; drawer.toggle()"
+          style="cursor: pointer"
+        >
           <img src="assets/img/keyword1.png" /> <span>Keyword Cloud</span>
         </div>
       </div>
