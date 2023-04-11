@@ -76,14 +76,25 @@
         <div class="box">
           <div class="left-side">
             <div class="box_topic" id="box_header">Avg Review</div>
-            <div
-              style="background-color: #0e008b; height: 28px"
-              [ngStyle]="{ width: overallProductDetails.avgRatting * 11 + '%' }"
-            >
+            <div style="display: flex; position: relative">
+              <!-- <div
+                    style="background-color: #0e008b; height: 28px"
+                    [ngStyle]="{
+                      width: overallProductDetails.avgRatting * 11 + '%'
+                    }"
+                  > -->
               <img
-                style="position: absolute; width: 123px"
+                style="width: 50%; height: 28px; position: absolute; top: 0"
                 src="assets/img/star.png"
               />
+              <!-- </div> -->
+
+              <div
+                style="background-color: #0e008b; height: 28px"
+                [ngStyle]="{
+                  width: overallProductDetails.avgRatting * 10 + '%'
+                }"
+              ></div>
             </div>
           </div>
         </div>

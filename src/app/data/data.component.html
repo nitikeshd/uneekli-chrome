@@ -43,17 +43,14 @@
           <p>Product Name</p>
           <img
             src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
+            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
+            (click)="sortData('title')"
           />
         </div>
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>Brand</p>
-          <img
-            src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
-          />
         </div>
       </th>
       <!-- <th>
@@ -67,10 +64,6 @@
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>Category</p>
-          <img
-            src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
-          />
         </div>
       </th>
       <!-- <th>
@@ -87,15 +80,61 @@
           <p>Price</p>
           <img
             src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 1rem; opacity: 0.7"
+            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
+            (click)="sortData('price')"
           />
         </div>
       </th>
-      <th>Fba Fee</th>
-      <th>Discount</th>
-      <th>Net Profit</th>
-      <th>Rating</th>
-      <th>No. Reviews</th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Fba Fee</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
+            (click)="sortData('fbaFee')"
+          />
+        </div>
+      </th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Discount</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
+            (click)="sortData('sale')"
+          />
+        </div>
+      </th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Net Profit</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
+            (click)="sortData('netProfit')"
+          />
+        </div>
+      </th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>Rating</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
+            (click)="sortData('rating')"
+          />
+        </div>
+      </th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p>No. Reviews</p>
+          <img
+            src="assets/img/Group 3.png"
+            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
+            (click)="sortData('totalReviews')"
+          />
+        </div>
+      </th>
       <th>Amazon Choice</th>
       <th>Best Seller</th>
       <th>Prime</th>
@@ -122,8 +161,8 @@
     <tr *ngFor="let product of tableDataFiltered; let i = index">
       <td data-label="#">
         <div style="display: flex; gap: 10px">
-            <input type="checkbox"/>
-            <label>{{ i + 1 }}</label>
+          <input type="checkbox" />
+          <label>{{ i + 1 }}</label>
         </div>
       </td>
       <td style="display: flex; gap: 2px">

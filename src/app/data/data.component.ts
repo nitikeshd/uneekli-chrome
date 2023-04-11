@@ -31,6 +31,28 @@ export class DataComponent implements OnInit, OnDestroy {
   loader: boolean = false;
   error: boolean = false;
   destroySub$ = new Subject();
+  productData = {
+    asin: true,
+    title: true,
+    price: true,
+    buyBox: true,
+    sales: true,
+    category: true,
+    fbaFee: true,
+    sale: true,
+    brand: true,
+    imageUrl: true,
+    netProfit: true,
+    rating: true,
+    totalReviews: true,
+    sponsored: true,
+    amazonChoice: true,
+    bestSeller: true,
+    amazonPrime: true,
+    itemAvailable: true,
+    lPosition: true,
+    gPosition: true,
+  };
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
@@ -88,6 +110,32 @@ export class DataComponent implements OnInit, OnDestroy {
         });
         this.filterToggle.emit('filterToggle');
       });
+  }
+
+  sortData(key: string, asc: boolean = true) {
+    this.tableDataFiltered = this.sortByKey(
+      this.tableDataFiltered,
+      key,
+      this.productData[key]
+    );
+    this.productData[key] = !this.productData[key];
+  }
+
+  sortByKey(array, key: string, asc: boolean) {
+    // Custom compare function for sorting the array
+    const compare = (a, b) => {
+      a[key] = !isNaN(Number(a[key])) ? Number(a[key]) : a[key];
+      b[key] = !isNaN(Number(b[key])) ? Number(b[key]) : b[key];
+      if (a[key] < b[key]) {
+        return asc ? -1 : 1;
+      }
+      if (a[key] > b[key]) {
+        return asc ? 1 : -1;
+      }
+      return 0;
+    };
+
+    return array.sort(compare);
   }
 
   ngOnDestroy(): void {
