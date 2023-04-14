@@ -14,6 +14,8 @@ import { catchError, takeUntil } from 'rxjs/operators';
 import { CommonService } from '../service/common.service';
 import { FilterField } from '../filter/filter.component';
 import { OverallProductDetails } from '../home/home.component';
+import { map } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-data',
@@ -56,7 +58,8 @@ export class DataComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private snackBar: MatSnackBar
   ) {}
   ngOnInit(): void {
     const keyword = this.route.snapshot.queryParamMap.get('key');
@@ -136,6 +139,37 @@ export class DataComponent implements OnInit, OnDestroy {
     };
 
     return array.sort(compare);
+  }
+
+  addProduct(product: Product) {
+    this.http
+      .post(
+        'https://user-service-production-66f8.up.railway.app/products',
+        product
+      )
+      .pipe(
+        map((res: any) => res.response),
+        catchError((err) => of('error'))
+      )
+      .subscribe((data) => {
+        if (data === 'error') {
+          this.snackBar.open('Technical issue please try latter', 'Close', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+          return;
+        }
+        this.snackBar.open(
+          'Product has been added to your track list',
+          'Close',
+          {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          }
+        );
+      });
   }
 
   ngOnDestroy(): void {

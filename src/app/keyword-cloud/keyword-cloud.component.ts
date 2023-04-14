@@ -62,6 +62,9 @@ export class KeywordCloudComponent {
       );
 
     this.options = {
+      chart: {
+        height: '600',
+      },
       accessibility: {
         screenReaderSection: {
           beforeChartFormat:
