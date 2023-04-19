@@ -1,0 +1,47 @@
+<div
+  style="height: 100vh; display: grid; place-items: center; background: #e5e5e5"
+>
+  <div class="login-container">
+    <div>
+      <h2>Login</h2>
+      <form action="" method="post">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            [(ngModel)]="email"
+          />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            [(ngModel)]="password"
+          />
+        </div>
+        <button type="submit" (click)="login()">Login</button>
+        <br />
+        <div class="extra-links">
+          <a
+            href="https://uneekli-tweg.netlify.app/reset-password"
+            target="_blank"
+            class="forgot-password"
+            >Forgot Password?</a
+          >
+          <a
+            href="https://uneekli-tweg.netlify.app/register"
+            target="_blank"
+            class="signup"
+            >Sign Up</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -142,6 +142,7 @@ export class DataComponent implements OnInit, OnDestroy {
   }
 
   addProduct(product: Product) {
+    product.email = localStorage.getItem('email');
     this.http
       .post(
         'https://user-service-production-66f8.up.railway.app/products',
@@ -179,6 +180,7 @@ export class DataComponent implements OnInit, OnDestroy {
 }
 
 interface Product {
+  email: string;
   asin: string;
   title: string;
   price: number;

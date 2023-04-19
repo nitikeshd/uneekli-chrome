@@ -4,6 +4,7 @@ import { materialModules } from '../material/material.mosule';
 import { DataComponent } from '../data/data.component';
 import { FilterComponent } from '../filter/filter.component';
 import { KeywordCloudComponent } from '../keyword-cloud/keyword-cloud.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
