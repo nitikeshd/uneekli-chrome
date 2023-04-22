@@ -142,11 +142,14 @@ export class DataComponent implements OnInit, OnDestroy {
   }
 
   addProduct(product: Product) {
-    product.email = localStorage.getItem('email');
+    const requestObj = {
+      email: localStorage.getItem('email'),
+      product,
+    };
     this.http
       .post(
         'https://user-service-production-66f8.up.railway.app/products',
-        product
+        requestObj
       )
       .pipe(
         map((res: any) => res.response),
