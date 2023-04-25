@@ -37,8 +37,37 @@ export class KeywordCloudComponent {
   options: any;
 
   constructor() {
-    var text =
-      'Education For betterment As all we know that, in front of GOD we are equal. GOD gave us similar power  in front of GOD we are equal. GOD gave us similar power to all. He is not did any partiality for creating all of us. Instead all those we create this Reservation Education For betterment system which force us to create discrimination among us. Because of this discrimination there are many social hazards taking place. Education For betterment As all we are in front of GOD we are equal. GOD gave us similar power Human, so we maintain it also. Not accepting any Reservation Education For betterment system. Education For betterment It hampering our mentality. It also create many social violence. Today I like to create many social violence. Today I like to Education For betterment convey all of you about this harmful and Education For betterment violent system that already playing it’s game among us.';
+    const words = [
+      'course',
+      'bill',
+      'squash',
+      'proportion',
+      'beneficiary',
+      'choice',
+      'experiment',
+      'consumption',
+      'density',
+      'drink',
+      'give',
+      'feather',
+      'medium',
+      'image',
+      'ethics',
+      'poetry',
+      'ballet',
+      'economics',
+      'copyright',
+      'declaration',
+      'instruction',
+      'wisecrack',
+    ];
+    let sentence = '';
+    for (var i = 0; i < 200; i++) {
+      sentence += words[Math.floor(Math.random() * words.length)] + ' ';
+    }
+
+    // const word = words[Math.floor(Math.random() * words.length)];
+    var text = sentence;
     var obj = { name: '', weight: 0 };
     var lines = text.split(/[,\. ]+/g),
       data = Highcharts.reduce(
