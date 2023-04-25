@@ -716,3 +716,8 @@ a:hover {
     text-decoration:none; 
     cursor:pointer;  
 }
+
+
+mat-icon{
+    cursor:pointer;  
+}

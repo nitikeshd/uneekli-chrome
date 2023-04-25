@@ -78,61 +78,78 @@
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>Price</p>
-          <img
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
+          <!-- <img
             src="assets/img/Group 3.png"
             style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
             (click)="sortData('price')"
-          />
+          /> -->
         </div>
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>Fba Fee</p>
-          <img
-            src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
-            (click)="sortData('fbaFee')"
-          />
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
         </div>
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>Discount</p>
-          <img
-            src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
-            (click)="sortData('sale')"
-          />
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
         </div>
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>Net Profit</p>
-          <img
-            src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
-            (click)="sortData('netProfit')"
-          />
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
         </div>
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>Rating</p>
-          <img
-            src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
-            (click)="sortData('rating')"
-          />
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
         </div>
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
           <p>No. Reviews</p>
-          <img
-            src="assets/img/Group 3.png"
-            style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
-            (click)="sortData('totalReviews')"
-          />
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
         </div>
       </th>
       <th>Amazon Choice</th>
@@ -166,7 +183,26 @@
         </div>
       </td>
       <td style="display: flex; gap: 2px">
-        <img
+        <mat-icon
+          aria-hidden="false"
+          aria-label="add circle"
+          fontIcon="add_circle"
+          matTooltip="Track this Product"
+          (click)="addProduct(product)"
+        ></mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="verify"
+          matTooltip="Track this Product"
+          fontIcon="verified_user"
+        ></mat-icon>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="share"
+          matTooltip="Track this Product"
+          fontIcon="share"
+        ></mat-icon>
+        <!-- <img
           style="mix-blend-mode: multiply; cursor: pointer"
           src="assets/img/add1.png"
           (click)="addProduct(product)"
@@ -178,7 +214,7 @@
         <img
           style="mix-blend-mode: multiply; cursor: pointer"
           src="assets/img/share1.png"
-        />
+        /> -->
       </td>
       <td data-label="Actions">
         <div style="display: flex; gap: 5px">

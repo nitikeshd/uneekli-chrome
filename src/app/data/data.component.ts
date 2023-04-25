@@ -16,11 +16,13 @@ import { FilterField } from '../filter/filter.component';
 import { OverallProductDetails } from '../home/home.component';
 import { map } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-data',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule],
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.css'],
 })

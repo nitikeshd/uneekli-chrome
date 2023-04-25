@@ -50,7 +50,7 @@
         </div>
         <div class="box">
           <div class="left-side">
-            <div class="box_topic" id="box_header">Avg BSR</div>
+            <div class="box_topic" id="box_header">Opportunity Score</div>
             <div class="number">5</div>
           </div>
         </div>
@@ -128,15 +128,29 @@
             <!-- <input type="text" style="width: 275px;" placeholder="Search by name or asin "> -->
           </div>
         </div>
-        <div (click)="isFilter = true; drawer.toggle()" style="cursor: pointer">
-          <img src="assets/img/filter-filled-tool-symbol.png" />
+        <div
+          (click)="isFilter = true; drawer.toggle()"
+          style="cursor: pointer; display: flex; align-items: center; gap: 5px"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="filter_alt"
+            style="font-size: 36px; height: 30px; width: 33px"
+          ></mat-icon>
           <span>Filter Results</span>
         </div>
         <div
           (click)="isFilter = false; drawer.toggle()"
-          style="cursor: pointer"
+          style="cursor: pointer; display: flex; align-items: center; gap: 5px"
         >
-          <img src="assets/img/keyword1.png" /> <span>Keyword Cloud</span>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="cloud"
+            style="font-size: 36px; height: 30px; width: 37px"
+          ></mat-icon
+          ><span>Keyword Cloud</span>
         </div>
       </div>
       <hr />
