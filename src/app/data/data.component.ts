@@ -178,6 +178,24 @@ export class DataComponent implements OnInit, OnDestroy {
       });
   }
 
+  shareProduct(url: string) {
+    navigator.clipboard.writeText(url);
+    this.snackBar.open('Product url is copied to clipboard', 'Close', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
+  }
+
+  copyAsin(asin: string) {
+    navigator.clipboard.writeText(asin);
+    this.snackBar.open('ASIN is copied to clipboard', 'Close', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
+  }
+
   ngOnDestroy(): void {
     this.destroySub$.next('destroy');
     this.destroySub$.complete();
@@ -206,4 +224,5 @@ interface Product {
   itemAvailable: boolean;
   lPosition: number;
   gPosition: number;
+  score: string;
 }
