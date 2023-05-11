@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="3620290412817563324" datatype="html">
+        <source>Total Revenue</source>
+        <target>إجمالي الإيرادات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3220614105419630150" datatype="html">
+        <source>AED 418.44</source>
+        <target>418.44 درهم إماراتي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3886496133318598108" datatype="html">
+        <source>Avg Revenue</source>
+        <target>متوسط ​​العائد</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6198927157193996822" datatype="html">
+        <source>AED 730.80</source>
+        <target> درهم إماراتي 730.80</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7859638532258919144" datatype="html">
+        <source>Opportunity Score</source>
+        <target>نقاط الفرصة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6406076030096655698" datatype="html">
+        <source>Avg Price</source>
+        <target>متوسط ​​السعر</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1404163118775273524" datatype="html">
+        <source>AED</source>
+        <target>درهم إماراتي</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2611996949349366520" datatype="html">
+        <source>Avg Review</source>
+        <target>متوسط ​​المراجعة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7096514150394506042" datatype="html">
+        <source>Filter Results</source>
+        <target>تصفية النتائج</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8335286443130096841" datatype="html">
+        <source>Keyword Cloud</source>
+        <target>الكلمات الرئيسية</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
