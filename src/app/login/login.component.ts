@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../service/user.service';
@@ -13,7 +13,7 @@ import { materialModules } from '../material/material.mosule';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   email: string = '';
   password: string = '';
 
@@ -22,6 +22,12 @@ export class LoginComponent {
     private router: Router,
     private snackBar: MatSnackBar
   ) {}
+
+  ngOnInit(): void {
+      if(localStorage.getItem('Authorisation')?.length > 0){
+        this.router.navigate(['/']);
+      }
+  }
 
   login() {
     const user = {

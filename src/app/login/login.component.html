@@ -3,10 +3,10 @@
 >
   <div class="login-container">
     <div>
-      <h2>Login</h2>
+      <h2 i18n>Login</h2>
       <form action="" method="post">
         <div class="input-group">
-          <label for="username">Username</label>
+          <label for="username" i18n>Username</label>
           <input
             type="text"
             id="username"
@@ -16,7 +16,7 @@
           />
         </div>
         <div class="input-group">
-          <label for="password">Password</label>
+          <label for="password" i18n>Password</label>
           <input
             type="password"
             id="password"
@@ -25,19 +25,21 @@
             [(ngModel)]="password"
           />
         </div>
-        <button type="submit" (click)="login()">Login</button>
+        <button type="submit" (click)="login()" i18n>Login</button>
         <br />
         <div class="extra-links">
           <a
             href="https://uneekli-tweg.netlify.app/reset-password"
             target="_blank"
             class="forgot-password"
+            i18n
             >Forgot Password?</a
           >
           <a
             href="https://uneekli-tweg.netlify.app/register"
             target="_blank"
             class="signup"
+            i18n
             >Sign Up</a
           >
         </div>

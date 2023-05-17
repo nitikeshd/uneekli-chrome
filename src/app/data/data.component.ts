@@ -8,7 +8,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, of, throwError } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
 import { CommonService } from '../service/common.service';
@@ -18,6 +18,7 @@ import { map } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-data',
@@ -61,12 +62,32 @@ export class DataComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private http: HttpClient,
     private commonService: CommonService,
-    private snackBar: MatSnackBar
+    private service: UserService,
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
   ngOnInit(): void {
     const keyword = this.route.snapshot.queryParamMap.get('key');
     this.loader = true;
     this.filterData();
+   
+    this.service.customerDetails(localStorage.getItem('email')).subscribe({
+        next: (data: any) => {
+          if (data) {
+            const planValidTill = new Date(
+              data.planValidTill
+            );
+            if (new Date() > planValidTill) {
+              window.open("https://uneekli-tweg.netlify.app/en-US/payment", '_blank');
+            }
+          }
+        },
+        error: (err) => {
+          localStorage.clear();
+          this.router.navigate(['/login']);
+        },
+      });
+
     this.http
       .get<Product[]>(`http://localhost:3000/search/${keyword}`)
       .pipe(

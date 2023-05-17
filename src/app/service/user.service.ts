@@ -23,6 +23,11 @@ export class UserService {
         })
       );
   }
+
+  customerDetails(email: string) {
+    const apiurl = this.apiUrl + '/user/' + email;
+    return this.httpClient.get<User>(apiurl);
+  }
 }
 
 export interface User {
