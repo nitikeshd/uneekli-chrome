@@ -89,7 +89,7 @@ export class DataComponent implements OnInit, OnDestroy {
       });
 
     this.http
-      .get<Product[]>(`http://localhost:3000/search/${keyword}`)
+      .get<Product[]>(`https://pd2.uneekli.com/search/${keyword}`)
       .pipe(
         catchError(() => {
           this.error = true;
