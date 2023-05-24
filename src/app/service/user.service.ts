@@ -6,7 +6,7 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  apiUrl = 'https://user-service-production-66f8.up.railway.app';
+  apiUrl = 'https://usr2.uneekli.com';
 
   constructor(private httpClient: HttpClient) {}
 

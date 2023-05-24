@@ -88,8 +88,14 @@ export class DataComponent implements OnInit, OnDestroy {
         },
       });
 
+    let lang = 'en';
+    let country = 'ae';
+    if(location.href.indexOf('ar-AE') > -1){
+      lang = 'ae'
+    }
+
     this.http
-      .get<Product[]>(`https://pd2.uneekli.com/search/${keyword}`)
+      .get<Product[]>(`https://pd2.uneekli.com/rainForest/${keyword}/${lang}/${country}`)
       .pipe(
         catchError(() => {
           this.error = true;
@@ -171,7 +177,7 @@ export class DataComponent implements OnInit, OnDestroy {
     };
     this.http
       .post(
-        'https://user-service-production-66f8.up.railway.app/products',
+        'https://usr2.uneekli.com/products',
         requestObj
       )
       .pipe(

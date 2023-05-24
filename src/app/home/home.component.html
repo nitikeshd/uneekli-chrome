@@ -170,6 +170,15 @@
           ></mat-icon
           ><span i18n>Keyword Cloud</span>
         </div>
+        <div
+        style="cursor: pointer; display: flex; align-items: center; gap: 5px"
+      >
+      <select class="dropdown" [(ngModel)]="lang"
+      (change)="selectLan($event)">
+        <option value="English">English</option>
+        <option value="Arabic">Arabic</option>
+      </select>
+      </div>
       </div>
       <hr />
     </div>
