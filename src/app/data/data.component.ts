@@ -109,8 +109,8 @@ export class DataComponent implements OnInit, OnDestroy {
         let totalPrice = 0;
         let totalRating = 0;
         this.tableData.forEach((product) => {
-          totalPrice += Number(product.price);
-          totalRating += Number(product.rating);
+          totalPrice +=isNaN(product.rating) ? 0 : Number(product.price);
+          totalRating += isNaN(product.rating) ? 0 : Number(product.rating);
         });
         this.overallProductDetails.avgPrice = (
           totalPrice / this.tableData.length
