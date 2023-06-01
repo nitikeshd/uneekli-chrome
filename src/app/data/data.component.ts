@@ -95,7 +95,7 @@ export class DataComponent implements OnInit, OnDestroy {
     }
 
     this.http
-      .get<Product[]>(`https://pd2.uneekli.com/rainForest/${keyword}/${lang}/${country}`)
+      .get<Product[]>(`https://pd2.uneekli.com/search/${keyword}/${lang}/${country}`)
       .pipe(
         catchError(() => {
           this.error = true;
