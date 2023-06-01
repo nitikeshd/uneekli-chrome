@@ -6,6 +6,7 @@ import { FilterComponent } from '../filter/filter.component';
 import { KeywordCloudComponent } from '../keyword-cloud/keyword-cloud.component';
 import { LoginComponent } from '../login/login.component';
 import { FormsModule } from '@angular/forms';
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,9 @@ export class HomeComponent implements OnInit{
   isFilter = true;
   overallProductDetails = new OverallProductDetails();
   lang = 'English';
-  constructor() {}
+  country = 'ae';
+  searchKey = '';
+  constructor(private commonService: CommonService) {}
 
   ngOnInit(): void {
     if (location.href.indexOf('ar-AE') > -1) {
@@ -46,7 +49,14 @@ export class HomeComponent implements OnInit{
 
   updateUrlParam(event) {
     const value = event.target.value;
-    window.location.search = `?key=${value}`;
+    this.commonService.searchSubject$.next(value);
+    // window.location.search = `?key=${value}`;
+  }
+
+  updateCountry(){
+    setTimeout(() => {  
+      this.commonService.searchSubject$.next(this.searchKey);
+    });
   }
 }
 

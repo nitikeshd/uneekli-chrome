@@ -7,5 +7,6 @@ import { FilterField } from '../filter/filter.component';
 })
 export class CommonService {
   filterSubject$ = new Subject<Map<string, number[]>>();
+  searchSubject$ = new Subject<string>();
   constructor() {}
 }

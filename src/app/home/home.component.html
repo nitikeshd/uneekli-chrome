@@ -140,6 +140,7 @@
                 type="text"
                 placeholder="Search"
                 class="search-input"
+                [(ngModel)]="searchKey"
                 (keydown.enter)="updateUrlParam($event)"
               />
             </div>
@@ -179,12 +180,23 @@
         <option value="Arabic">Arabic</option>
       </select>
       </div>
+
+      <div
+      style="cursor: pointer; display: flex; align-items: center; gap: 5px"
+    >
+    <select class="dropdown" [(ngModel)]="country" (change)="updateCountry()">
+      <option value="ae">AE</option>
+      <option value="sr">SR</option>
+      <option value="eg">EG</option>
+    </select>
+    </div>
       </div>
       <hr />
     </div>
     <app-data
       (filterToggle)="drawer.toggle()"
       [overallProductDetails]="overallProductDetails"
+      [country]="country"
     ></app-data>
   </mat-drawer-content>
 </mat-drawer-container>

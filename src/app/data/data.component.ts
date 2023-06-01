@@ -31,11 +31,14 @@ export class DataComponent implements OnInit, OnDestroy {
   @Output() filterToggle: EventEmitter<string> = new EventEmitter<string>();
   @Input()
   overallProductDetails: OverallProductDetails;
+  @Input()
+  country: string;
   tableData: Product[] = [];
   tableDataFiltered: Product[] = [];
   loader: boolean = false;
   error: boolean = false;
   destroySub$ = new Subject();
+  lang = 'en';
   productData = {
     asin: true,
     title: true,
@@ -70,6 +73,8 @@ export class DataComponent implements OnInit, OnDestroy {
     const keyword = this.route.snapshot.queryParamMap.get('key');
     this.loader = true;
     this.filterData();
+
+    this.commonService.searchSubject$.subscribe((key) => this.search(key))
    
     this.service.customerDetails(localStorage.getItem('email')).subscribe({
         next: (data: any) => {
@@ -88,36 +93,40 @@ export class DataComponent implements OnInit, OnDestroy {
         },
       });
 
-    let lang = 'en';
-    let country = 'ae';
+    
     if(location.href.indexOf('ar-AE') > -1){
-      lang = 'ae'
+      this.lang = 'ae'
     }
 
+   this.search(keyword);
+  }
+
+  search(keyword: string ){
+    this.loader = true;
     this.http
-      .get<Product[]>(`https://pd2.uneekli.com/search/${keyword}/${lang}/${country}`)
-      .pipe(
-        catchError(() => {
-          this.error = true;
-          return of([]);
-        })
-      )
-      .subscribe((data) => {
-        this.tableData = data;
-        this.tableDataFiltered = this.tableData;
-        this.loader = false;
-        let totalPrice = 0;
-        let totalRating = 0;
-        this.tableData.forEach((product) => {
-          totalPrice +=isNaN(product.rating) ? 0 : Number(product.price);
-          totalRating += isNaN(product.rating) ? 0 : Number(product.rating);
-        });
-        this.overallProductDetails.avgPrice = (
-          totalPrice / this.tableData.length
-        ).toFixed(2);
-        this.overallProductDetails.avgRatting =
-          totalRating / this.tableData.length;
+    .get<Product[]>(`https://pd2.uneekli.com/search/${keyword || 'null'}/${this.lang}/${this.country}`)
+    .pipe(
+      catchError(() => {
+        this.error = true;
+        return of([]);
+      })
+    )
+    .subscribe((data) => {
+      this.tableData = data;
+      this.tableDataFiltered = this.tableData;
+      this.loader = false;
+      let totalPrice = 0;
+      let totalRating = 0;
+      this.tableData.forEach((product) => {
+        totalPrice +=isNaN(product.rating) ? 0 : Number(product.price);
+        totalRating += isNaN(product.rating) ? 0 : Number(product.rating);
       });
+      this.overallProductDetails.avgPrice = (
+        totalPrice / this.tableData.length
+      ).toFixed(2);
+      this.overallProductDetails.avgRatting =
+        totalRating / this.tableData.length;
+    });
   }
 
   filterData() {
