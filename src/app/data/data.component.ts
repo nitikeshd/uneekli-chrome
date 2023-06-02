@@ -71,7 +71,6 @@ export class DataComponent implements OnInit, OnDestroy {
   ) {}
   ngOnInit(): void {
     const keyword = this.route.snapshot.queryParamMap.get('key');
-    this.loader = true;
     this.filterData();
 
     this.commonService.searchSubject$.subscribe((key) => this.search(key))
@@ -108,6 +107,7 @@ export class DataComponent implements OnInit, OnDestroy {
     .pipe(
       catchError(() => {
         this.error = true;
+        this.loader = false;
         return of([]);
       })
     )
