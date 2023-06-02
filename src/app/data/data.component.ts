@@ -102,6 +102,7 @@ export class DataComponent implements OnInit, OnDestroy {
 
   search(keyword: string ){
     this.loader = true;
+    this.error = false;
     this.http
     .get<Product[]>(`https://pd2.uneekli.com/search/${keyword || 'null'}/${this.lang}/${this.country}`)
     .pipe(
