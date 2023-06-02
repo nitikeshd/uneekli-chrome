@@ -24,7 +24,7 @@
                 AED
               </small>
               <sub>418.44</sub> -->
-              <div class="number" i18n>AED 418.44</div>
+              <div class="number" i18n>AED {{ overallProductDetails.totalRevenue }}</div>
             </div>
           </div>
         </div>
@@ -44,14 +44,14 @@
                 >AED
               </small>
               <sub>730.80</sub> -->
-              <div class="number" i18n>AED 730.80</div>
+              <div class="number" i18n>AED {{ overallProductDetails.avgRevenue }}</div>
             </div>
           </div>
         </div>
         <div class="box">
           <div class="left-side">
             <div class="box_topic" id="box_header" i18n>Opportunity Score</div>
-            <div class="number">5</div>
+            <div class="number">{{overallProductDetails.oppScore}}</div>
           </div>
         </div>
         <div class="box">

@@ -4,9 +4,9 @@ import { materialModules } from '../material/material.mosule';
 import { DataComponent } from '../data/data.component';
 import { FilterComponent } from '../filter/filter.component';
 import { KeywordCloudComponent } from '../keyword-cloud/keyword-cloud.component';
-import { LoginComponent } from '../login/login.component';
 import { FormsModule } from '@angular/forms';
 import { CommonService } from '../service/common.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,9 +28,10 @@ export class HomeComponent implements OnInit{
   lang = 'English';
   country = 'ae';
   searchKey = '';
-  constructor(private commonService: CommonService) {}
+  constructor(private commonService: CommonService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.country = this.route.snapshot.queryParamMap.get('country') || 'ae';
     if (location.href.indexOf('ar-AE') > -1) {
       this.lang = 'Arabic';
     } else {
@@ -62,8 +63,9 @@ export class HomeComponent implements OnInit{
 
 export class OverallProductDetails {
   totalRevenue: number = 0;
-  avgRevenue: number = 0;
+  avgRevenue: string = '';
   avgBsr: number = 0;
   avgPrice: string = '';
   avgRatting: number = 0;
+  oppScore: string = '';
 }

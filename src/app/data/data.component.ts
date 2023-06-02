@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, of, throwError } from 'rxjs';
-import { catchError, takeUntil } from 'rxjs/operators';
+import { catchError, retry, takeUntil } from 'rxjs/operators';
 import { CommonService } from '../service/common.service';
 import { FilterField } from '../filter/filter.component';
 import { OverallProductDetails } from '../home/home.component';
@@ -71,6 +71,7 @@ export class DataComponent implements OnInit, OnDestroy {
   ) {}
   ngOnInit(): void {
     const keyword = this.route.snapshot.queryParamMap.get('key');
+    this.country = this.route.snapshot.queryParamMap.get('country') || 'ae';
     this.filterData();
 
     this.commonService.searchSubject$.subscribe((key) => this.search(key))
@@ -106,6 +107,7 @@ export class DataComponent implements OnInit, OnDestroy {
     this.http
     .get<Product[]>(`https://pd2.uneekli.com/search/${keyword || 'all'}/${this.lang}/${this.country}`)
     .pipe(
+      retry(3),
       catchError(() => {
         this.error = true;
         this.loader = false;
@@ -118,16 +120,42 @@ export class DataComponent implements OnInit, OnDestroy {
       this.loader = false;
       let totalPrice = 0;
       let totalRating = 0;
+      let totalRevenue = 0;
+      let totalNetProfit = 0;
       this.tableData.forEach((product) => {
         totalPrice +=isNaN(product.rating) ? 0 : Number(product.price);
         totalRating += isNaN(product.rating) ? 0 : Number(product.rating);
+        totalRevenue += (isNaN(product.totalReviews) ? 10 : Number(product.totalReviews)) * 3 * Number(product.price);
+        totalNetProfit += isNaN(product.netProfit) ? 0 : Number(product.netProfit);
       });
       this.overallProductDetails.avgPrice = (
         totalPrice / this.tableData.length
       ).toFixed(2);
       this.overallProductDetails.avgRatting =
         totalRating / this.tableData.length;
+
+      this.overallProductDetails.totalRevenue = totalRevenue;
+      this.overallProductDetails.avgRevenue = (
+        totalRevenue / this.tableData.length
+      ).toFixed(2);
+      const oppScore = totalNetProfit / this.overallProductDetails.avgRatting;
+      this.overallProductDetails.oppScore = this.remapNumber(oppScore, 100, 9000, 1, 10).toFixed(1);
     });
+  }
+
+  remapNumber(number, oldMin, oldMax, newMin, newMax) {
+    const oldRange = oldMax - oldMin;
+    const newRange = newMax - newMin;
+    let newValue = ((number - oldMin) * newRange / oldRange) + newMin;
+    
+    // Clamp the value within the desired range
+    if (newValue < newMin) {
+      newValue = newMin;
+    } else if (newValue > newMax) {
+      newValue = newMax;
+    }
+    
+    return newValue;
   }
 
   filterData() {
