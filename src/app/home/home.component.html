@@ -184,7 +184,7 @@
       <div
       style="cursor: pointer; display: flex; align-items: center; gap: 5px"
     >
-    <select class="dropdown" [(ngModel)]="country" (change)="updateCountry()">
+    <select class="dropdown" [(ngModel)]="commonService.country" (change)="updateCountry()">
       <option value="ae">AE</option>
       <option value="sa">SA</option>
       <option value="eg">EG</option>
@@ -196,7 +196,7 @@
     <app-data
       (filterToggle)="drawer.toggle()"
       [overallProductDetails]="overallProductDetails"
-      [country]="country"
+      [country]="commonService.country"
     ></app-data>
   </mat-drawer-content>
 </mat-drawer-container>

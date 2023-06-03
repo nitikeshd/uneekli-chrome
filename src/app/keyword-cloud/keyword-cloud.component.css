@@ -1,3 +1,19 @@
 p {
     font-family: Lato;
   }
+
+  .keyword-cloud {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    height: 300px; /* Adjust the height as needed */
+  }
+
+  .keyword {
+    font-size: 12px;
+    margin: 4px;
+    position: absolute;
+  }

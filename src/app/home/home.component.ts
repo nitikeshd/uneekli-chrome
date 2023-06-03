@@ -7,6 +7,8 @@ import { KeywordCloudComponent } from '../keyword-cloud/keyword-cloud.component'
 import { FormsModule } from '@angular/forms';
 import { CommonService } from '../service/common.service';
 import { ActivatedRoute } from '@angular/router';
+import { switchMap, tap } from 'rxjs';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -26,17 +28,26 @@ export class HomeComponent implements OnInit{
   isFilter = true;
   overallProductDetails = new OverallProductDetails();
   lang = 'English';
-  country = 'ae';
   searchKey = '';
-  constructor(private commonService: CommonService, private route: ActivatedRoute) {}
+  constructor(public commonService: CommonService, private route: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.country = this.route.snapshot.queryParamMap.get('country') || 'ae';
+    this.commonService.country = this.route.snapshot.queryParamMap.get('country') || 'ae';
     if (location.href.indexOf('ar-AE') > -1) {
       this.lang = 'Arabic';
+      this.commonService.lan = 'ar';
     } else {
       this.lang = 'English';
+      this.commonService.lan = 'en';
     }
+
+    this.commonService.searchSubject$.pipe(
+      tap(sear => console.log(sear)),
+      switchMap((searchTerm) =>  this.userService.getKeywords(searchTerm, this.commonService.lan, this.commonService.country.toUpperCase()))
+    ).subscribe((keywords: any) => {
+      // console.log(keywords);
+      this.userService.keywords = Object.keys(keywords).map((key) => ({name: key, weight: keywords[key]['search volume']}));
+    })
   }
 
   selectLan(event) {
