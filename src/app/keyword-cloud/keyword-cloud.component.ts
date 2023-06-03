@@ -62,7 +62,7 @@ export class KeywordCloudComponent implements OnInit{
       series: [
         {
           type: 'wordcloud',
-          data: this.userService.keywords.slice(0,100),
+          data: this.userService.keywords.length > 100 ? this.userService.keywords.slice(0,100) : this.userService.keywords.length,
           name: 'Occurrences',
         },
       ],
@@ -80,40 +80,4 @@ export class KeywordCloudComponent implements OnInit{
     // })
     
   }
-
-  generateKeyword(){
-    // Array of keywords with their respective weights
-    const keywords = [
-      { keyword: 'JavaScript', weight: 9 },
-      { keyword: 'HTML', weight: 7 },
-      { keyword: 'CSS', weight: 5 },
-      { keyword: 'Web Development', weight: 4 },
-      { keyword: 'OpenAI', weight: 3 },
-      { keyword: 'AI', weight: 3 },
-      { keyword: 'Machine Learning', weight: 2 },
-      { keyword: 'Chatbot', weight: 2 },
-      { keyword: 'GPT-3.5', weight: 1 },
-      { keyword: 'Keyword Cloud', weight: 1 },
-    ];
-
-    // Generate the keyword cloud
-    const keywordCloud = document.getElementById('keywordCloud');
-    for (let i = 0; i < keywords.length; i++) {
-      const keyword = keywords[i].keyword;
-      const weight = keywords[i].weight;
-
-      const span = document.createElement('span');
-      span.textContent = keyword;
-      span.style.fontSize = `${12 + weight * 2}px`;
-      span.style.opacity = `${weight * 0.1}`;
-      span.classList.add('keyword');
-
-      const xPos = Math.random() * (keywordCloud.offsetWidth - span.offsetWidth);
-      const yPos = Math.random() * (keywordCloud.offsetHeight - span.offsetHeight);
-      const rotation = Math.random() * 360; // Random rotation angle between 0 and 360 degrees
-      span.style.transform = `translate(${xPos}px, ${yPos}px) rotate(${rotation}deg)`;
-
-      keywordCloud.appendChild(span);
-    }
-}
 }
