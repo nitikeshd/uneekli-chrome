@@ -134,9 +134,9 @@ export class DataComponent implements OnInit, OnDestroy {
       this.overallProductDetails.avgRatting =
         totalRating / this.tableData.length;
 
-      this.overallProductDetails.totalRevenue = totalRevenue;
+      this.overallProductDetails.totalRevenue = totalRevenue / 30;
       this.overallProductDetails.avgRevenue = (
-        totalRevenue / this.tableData.length
+        (totalRevenue / this.tableData.length)/100
       ).toFixed(2);
       const oppScore = totalNetProfit / this.overallProductDetails.avgRatting;
       this.overallProductDetails.oppScore = this.remapNumber(oppScore, 100, 9000, 1, 10).toFixed(1);
