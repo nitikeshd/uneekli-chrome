@@ -35,7 +35,7 @@ export class UserService {
   }
 
   getKeywords(key: string, lang: string, country: string){
-    const url = 'http://localhost:3000' + `/keys/${key}/${lang}/${country}`;
+    const url = this.apiUrl + `/keys/${key}/${lang}/${country}`;
     return this.httpClient.get(url);
   }
 }
