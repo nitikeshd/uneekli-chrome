@@ -9,6 +9,223 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="3193976279273491157" datatype="html">
+        <source>Actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1675111088809005753" datatype="html">
+        <source>Product Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2559885490456050359" datatype="html">
+        <source>Brand</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1806667489382256324" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1448693695464104966" datatype="html">
+        <source>Discounted</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8894377483833272091" datatype="html">
+        <source>Price</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6107655087673219605" datatype="html">
+        <source>Fba Fee</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4808411315981120788" datatype="html">
+        <source>Discount</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6180924692266157044" datatype="html">
+        <source>Net Profit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3706222784708785028" datatype="html">
+        <source>Rating</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4847135741111139699" datatype="html">
+        <source>No. Reviews</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5858551257008591443" datatype="html">
+        <source>Amazon Choice</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8785122281012266870" datatype="html">
+        <source>Best Seller</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">154</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1959979480361689878" datatype="html">
+        <source>Prime</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2846486485324971059" datatype="html">
+        <source>L.Position</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">156</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5727092664615723919" datatype="html">
+        <source>G.Position</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">157</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2154547246640805094" datatype="html">
+        <source>Item Available</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7123653594948067002" datatype="html">
+        <source>Score</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3957753195001553021" datatype="html">
+        <source>C Bsr</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9068649308052502456" datatype="html">
+        <source>LYS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8280166573070887570" datatype="html">
+        <source>SP</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7229298965005765710" datatype="html">
+        <source>Storage Fee</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">164</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2251760180975934951" datatype="html">
+        <source>Mo. Sales</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">166</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="884971468046971124" datatype="html">
+        <source>D. Sales</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1696114019195649117" datatype="html">
+        <source>Mo Revenue</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">168</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="665219418211496660" datatype="html">
+        <source>Rank</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5688610696671067344" datatype="html">
+        <source>LQS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">170</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3792020550343109928" datatype="html">
+        <source>Seller Type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">171</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2294807677110060523" datatype="html">
+        <source>Sellers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3392114061661490939" datatype="html">
+        <source>Dimensions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">173</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5848348023107769657" datatype="html">
+        <source>Weight</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">174</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3620290412817563324" datatype="html">
         <source>Total Revenue</source>
         <context-group purpose="location">
@@ -16,11 +233,15 @@
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3220614105419630150" datatype="html">
-        <source>AED 418.44</source>
+      <trans-unit id="8365142437507201147" datatype="html">
+        <source>AED <x id="INTERPOLATION" equiv-text="{{ overallProductDetails.totalRevenue.toFixed(1) }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3886496133318598108" datatype="html">
@@ -28,13 +249,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6198927157193996822" datatype="html">
-        <source>AED 730.80</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7859638532258919144" datatype="html">
@@ -51,8 +265,8 @@
           <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1404163118775273524" datatype="html">
-        <source>AED</source>
+      <trans-unit id="4967474133270373565" datatype="html">
+        <source>AED </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">73</context>
@@ -69,14 +283,14 @@
         <source>Filter Results</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">159</context>
+          <context context-type="linenumber">160</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8335286443130096841" datatype="html">
         <source>Keyword Cloud</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">171</context>
+          <context context-type="linenumber">172</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
