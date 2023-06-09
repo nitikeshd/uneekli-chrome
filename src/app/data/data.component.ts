@@ -227,7 +227,11 @@ export class DataComponent implements OnInit, OnDestroy {
   addProduct(product: Product) {
     const requestObj = {
       email: localStorage.getItem('email'),
-      product,
+      product: {
+        ...product,
+        language: this.commonService.lan,
+        country: this.commonService.country
+      }
     };
     this.http
       .post(
