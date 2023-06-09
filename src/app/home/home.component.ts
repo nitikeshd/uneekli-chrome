@@ -42,7 +42,6 @@ export class HomeComponent implements OnInit{
     }
 
     this.commonService.searchSubject$.pipe(
-      tap(sear => console.log(sear)),
       switchMap((searchTerm) =>  this.userService.getKeywords(searchTerm, this.commonService.lan, this.commonService.country.toUpperCase()))
     ).subscribe((keywords: any) => {
       // console.log(keywords);
