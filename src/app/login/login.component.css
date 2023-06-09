@@ -35,7 +35,7 @@ button {
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #4CAF50;
+    background-color: #00008b;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -53,10 +53,10 @@ button:hover {
 
 .extra-links a {
     text-decoration: none;
-    color: #4CAF50;
+    color: #00008b;
     transition: color 0.3s;
 }
 
 .extra-links a:hover {
-    color: #45a049;
+    color: #00008b;
 }
