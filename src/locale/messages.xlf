@@ -226,6 +226,13 @@
           <context context-type="linenumber">174</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4715491471352087288" datatype="html">
+        <source>Load more Result</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">290</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3620290412817563324" datatype="html">
         <source>Total Revenue</source>
         <context-group purpose="location">

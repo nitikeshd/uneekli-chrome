@@ -39,6 +39,8 @@ export class DataComponent implements OnInit, OnDestroy {
   error: boolean = false;
   destroySub$ = new Subject();
   lang = 'en';
+  page = 1;
+  keyword = '';
   productData = {
     asin: true,
     title: true,
@@ -70,11 +72,11 @@ export class DataComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
   ngOnInit(): void {
-    const keyword = this.route.snapshot.queryParamMap.get('key');
+    this.keyword = this.route.snapshot.queryParamMap.get('key');
     this.country = this.route.snapshot.queryParamMap.get('country') || 'ae';
     this.filterData();
 
-    this.commonService.searchSubject$.subscribe((key) => this.search(key))
+    this.commonService.searchSubject$.pipe(takeUntil(this.destroySub$)).subscribe((key) => this.search(key));
    
     this.service.customerDetails(localStorage.getItem('email')).subscribe({
         next: (data: any) => {
@@ -98,14 +100,28 @@ export class DataComponent implements OnInit, OnDestroy {
       this.lang = 'ae'
     }
 
-   this.search(keyword);
+   this.search(this.keyword);
   }
 
-  search(keyword: string ){
+  search(keyword: string, page = 1){
+    this.keyword = keyword;
     this.loader = true;
     this.error = false;
+
+    if(page === 1){
+      this.page = 1;
+    }
+
+    const requestObj = {
+      catagories: [],
+      keyword,
+      page,
+      country: this.country.toLowerCase(),
+      lang: this.lang
+    };
+
     this.http
-    .get<Product[]>(`https://pd2.uneekli.com/search/${keyword || 'all'}/${this.lang}/${this.country}`)
+    .post<Product[]>(`https://pd2.uneekli.com/products`, requestObj)
     .pipe(
       retry(3),
       catchError(() => {
@@ -259,6 +275,11 @@ export class DataComponent implements OnInit, OnDestroy {
       horizontalPosition: 'center',
       verticalPosition: 'top',
     });
+  }
+
+  loadMore(){
+    this.page = this.page + 1;
+    this.search(this.keyword, this.page);
   }
 
   ngOnDestroy(): void {
