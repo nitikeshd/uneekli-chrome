@@ -24,7 +24,10 @@
                 AED
               </small>
               <sub>418.44</sub> -->
-              <div class="number" i18n>AED {{ overallProductDetails.totalRevenue.toFixed(1) }}</div>
+              <div class="number" i18n>
+                AED
+                {{ overallProductDetails.totalRevenue | commaSeparatedNumber }}
+              </div>
             </div>
           </div>
         </div>
@@ -44,14 +47,17 @@
                 >AED
               </small>
               <sub>730.80</sub> -->
-              <div class="number" i18n>AED {{ overallProductDetails.avgRevenue }}</div>
+              <div class="number" i18n>
+                AED
+                {{ overallProductDetails.avgRevenue | commaSeparatedNumber }}
+              </div>
             </div>
           </div>
         </div>
         <div class="box">
           <div class="left-side">
             <div class="box_topic" id="box_header" i18n>Opportunity Score</div>
-            <div class="number">{{overallProductDetails.oppScore}}</div>
+            <div class="number">{{ overallProductDetails.oppScore }}</div>
           </div>
         </div>
         <div class="box">
@@ -70,7 +76,8 @@
               </small>
               <sub>270.10</sub> -->
               <div class="number">
-                <span i18n>AED </span> {{ overallProductDetails.avgPrice }}
+                <span i18n>AED </span>
+                {{ overallProductDetails.avgPrice | commaSeparatedNumber }}
               </div>
             </div>
           </div>
@@ -116,7 +123,7 @@
                 }"
               ></div>
               <div class="number" style="padding-top: 3px">
-                {{ overallProductDetails.avgRatting.toFixed(1) }}
+                {{ overallProductDetails.avgRatting | commaSeparatedNumber }}
               </div>
             </div>
           </div>
@@ -172,24 +179,31 @@
           ><span i18n>Keyword Cloud</span>
         </div>
         <div
-        style="cursor: pointer; display: flex; align-items: center; gap: 5px"
-      >
-      <select class="dropdown" [(ngModel)]="lang"
-      (change)="selectLan($event)">
-        <option value="English">English</option>
-        <option value="Arabic">Arabic</option>
-      </select>
-      </div>
+          style="cursor: pointer; display: flex; align-items: center; gap: 5px"
+        >
+          <select
+            class="dropdown"
+            [(ngModel)]="lang"
+            (change)="selectLan($event)"
+          >
+            <option value="English">English</option>
+            <option value="Arabic">Arabic</option>
+          </select>
+        </div>
 
-      <div
-      style="cursor: pointer; display: flex; align-items: center; gap: 5px"
-    >
-    <select class="dropdown" [(ngModel)]="commonService.country" (change)="updateCountry()">
-      <option value="ae">AE</option>
-      <option value="sa">SA</option>
-      <option value="eg">EG</option>
-    </select>
-    </div>
+        <div
+          style="cursor: pointer; display: flex; align-items: center; gap: 5px"
+        >
+          <select
+            class="dropdown"
+            [(ngModel)]="commonService.country"
+            (change)="updateCountry()"
+          >
+            <option value="ae">AE</option>
+            <option value="sa">SA</option>
+            <option value="eg">EG</option>
+          </select>
+        </div>
       </div>
       <hr />
     </div>

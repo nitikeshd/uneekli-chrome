@@ -9,6 +9,7 @@ import { CommonService } from '../service/common.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
 import { UserService } from '../service/user.service';
+import { CommaSeparatedNumberPipe } from '../pipes/comma-separated-number.pipe';
 
 @Component({
   selector: 'app-home',
@@ -19,20 +20,26 @@ import { UserService } from '../service/user.service';
     DataComponent,
     FilterComponent,
     KeywordCloudComponent,
-    FormsModule
+    FormsModule,
+    CommaSeparatedNumberPipe,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   isFilter = true;
   overallProductDetails = new OverallProductDetails();
   lang = 'English';
   searchKey = '';
-  constructor(public commonService: CommonService, private route: ActivatedRoute, private userService: UserService) {}
+  constructor(
+    public commonService: CommonService,
+    private route: ActivatedRoute,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.commonService.country = this.route.snapshot.queryParamMap.get('country') || 'ae';
+    this.commonService.country =
+      this.route.snapshot.queryParamMap.get('country') || 'ae';
     if (location.href.indexOf('ar-AE') > -1) {
       this.lang = 'Arabic';
       this.commonService.lan = 'ar';
@@ -41,12 +48,23 @@ export class HomeComponent implements OnInit{
       this.commonService.lan = 'en';
     }
 
-    this.commonService.searchSubject$.pipe(
-      switchMap((searchTerm) =>  this.userService.getKeywords(searchTerm, this.commonService.lan, this.commonService.country.toUpperCase()))
-    ).subscribe((keywords: any) => {
-      // console.log(keywords);
-      this.userService.keywords = Object.keys(keywords).map((key) => ({name: key, weight: keywords[key]['search volume']}));
-    })
+    this.commonService.searchSubject$
+      .pipe(
+        switchMap((searchTerm) =>
+          this.userService.getKeywords(
+            searchTerm,
+            this.commonService.lan,
+            this.commonService.country.toUpperCase()
+          )
+        )
+      )
+      .subscribe((keywords: any) => {
+        // console.log(keywords);
+        this.userService.keywords = Object.keys(keywords).map((key) => ({
+          name: key,
+          weight: keywords[key]['search volume'],
+        }));
+      });
   }
 
   selectLan(event) {
@@ -64,8 +82,8 @@ export class HomeComponent implements OnInit{
     // window.location.search = `?key=${value}`;
   }
 
-  updateCountry(){
-    setTimeout(() => {  
+  updateCountry() {
+    setTimeout(() => {
       this.commonService.searchSubject$.next(this.searchKey);
     });
   }
