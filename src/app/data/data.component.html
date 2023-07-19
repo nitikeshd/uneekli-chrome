@@ -232,19 +232,23 @@
       <!-- <td data-label="Buy Box">{{product.buyBox}}</td> -->
       <td data-label="Sales">{{ product.sales }}</td>
       <td data-label="Price">
-        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        <small style="font-size: 10px; opacity: 0.9"
+          >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
         >{{ product.price }}
       </td>
       <td data-label="fba">
-        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        <small style="font-size: 10px; opacity: 0.9"
+          >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
         >{{ product.fbaFee }}
       </td>
       <td data-label="sales">
-        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        <small style="font-size: 10px; opacity: 0.9"
+          >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
         >{{ product.sale }}
       </td>
       <td>
-        <small style="font-size: 10px; opacity: 0.9">AED&nbsp;</small
+        <small style="font-size: 10px; opacity: 0.9"
+          >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
         >{{ product.netProfit }}
       </td>
       <td>{{ product.rating }}</td>

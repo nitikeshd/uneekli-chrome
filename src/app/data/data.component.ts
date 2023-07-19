@@ -41,6 +41,11 @@ export class DataComponent implements OnInit, OnDestroy {
   lang = 'en';
   page = 1;
   keyword = '';
+  currencyMap = {
+    ae: 'ADE',
+    sa: 'SAR',
+    eg: 'EGP',
+  };
   productData = {
     asin: true,
     title: true,
@@ -66,7 +71,7 @@ export class DataComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private commonService: CommonService,
+    public commonService: CommonService,
     private service: UserService,
     private snackBar: MatSnackBar,
     private router: Router
@@ -76,39 +81,40 @@ export class DataComponent implements OnInit, OnDestroy {
     this.country = this.route.snapshot.queryParamMap.get('country') || 'ae';
     this.filterData();
 
-    this.commonService.searchSubject$.pipe(takeUntil(this.destroySub$)).subscribe((key) => this.search(key));
-   
-    this.service.customerDetails(localStorage.getItem('email')).subscribe({
-        next: (data: any) => {
-          if (data) {
-            const planValidTill = new Date(
-              data.planValidTill
-            );
-            if (new Date() > planValidTill) {
-              window.open("https://uneekli-tweg.netlify.app/en-US/payment", '_blank');
-            }
-          }
-        },
-        error: (err) => {
-          localStorage.clear();
-          this.router.navigate(['/login']);
-        },
-      });
+    this.commonService.searchSubject$
+      .pipe(takeUntil(this.destroySub$))
+      .subscribe((key) => this.search(key));
 
-    
-    if(location.href.indexOf('ar-AE') > -1){
-      this.lang = 'ae'
+    this.service.customerDetails(localStorage.getItem('email')).subscribe({
+      next: (data: any) => {
+        if (data) {
+          const planValidTill = new Date(data.planValidTill);
+          if (new Date() > planValidTill) {
+            window.open(
+              'https://uneekli-tweg.netlify.app/en-US/payment',
+              '_blank'
+            );
+          }
+        }
+      },
+      error: (err) => {
+        localStorage.clear();
+        this.router.navigate(['/login']);
+      },
+    });
+
+    if (location.href.indexOf('ar-AE') > -1) {
+      this.lang = 'ae';
     }
 
-   this.search(this.keyword);
+    this.search(this.keyword);
   }
 
-  search(keyword: string, page = 1){
-    this.keyword = keyword;
+  search(keyword: string, page = 1) {
     this.loader = true;
     this.error = false;
 
-    if(page === 1){
+    if (page === 1) {
       this.page = 1;
     }
 
@@ -117,60 +123,73 @@ export class DataComponent implements OnInit, OnDestroy {
       keyword,
       page,
       country: this.country.toLowerCase(),
-      lang: this.lang
+      lang: this.lang,
     };
 
     this.http
-    .post<Product[]>(`https://pd2.uneekli.com/products`, requestObj)
-    .pipe(
-      retry(3),
-      catchError(() => {
-        this.error = true;
+      .post<Product[]>(`https://pd2.uneekli.com/products`, requestObj)
+      .pipe(
+        retry(3),
+        catchError(() => {
+          this.error = true;
+          this.loader = false;
+          return of([]);
+        })
+      )
+      .subscribe((data) => {
+        this.tableData = data;
+        this.tableDataFiltered = this.tableData;
         this.loader = false;
-        return of([]);
-      })
-    )
-    .subscribe((data) => {
-      this.tableData = data;
-      this.tableDataFiltered = this.tableData;
-      this.loader = false;
-      let totalPrice = 0;
-      let totalRating = 0;
-      let totalRevenue = 0;
-      let totalNetProfit = 0;
-      this.tableData.forEach((product) => {
-        totalPrice +=isNaN(product.rating) ? 0 : Number(product.price);
-        totalRating += isNaN(product.rating) ? 0 : Number(product.rating);
-        totalRevenue += (isNaN(product.totalReviews) ? 10 : Number(product.totalReviews)) * 3 * Number(product.price);
-        totalNetProfit += isNaN(product.netProfit) ? 0 : Number(product.netProfit);
-      });
-      this.overallProductDetails.avgPrice = (
-        totalPrice / this.tableData.length
-      ).toFixed(2);
-      this.overallProductDetails.avgRatting =
-        totalRating / this.tableData.length;
+        let totalPrice = 0;
+        let totalRating = 0;
+        let totalRevenue = 0;
+        let totalNetProfit = 0;
+        this.tableData.forEach((product) => {
+          totalPrice += isNaN(product.rating) ? 0 : Number(product.price);
+          totalRating += isNaN(product.rating) ? 0 : Number(product.rating);
+          totalRevenue +=
+            (isNaN(product.totalReviews) ? 10 : Number(product.totalReviews)) *
+            3 *
+            Number(product.price);
+          totalNetProfit += isNaN(product.netProfit)
+            ? 0
+            : Number(product.netProfit);
+        });
+        this.overallProductDetails.avgPrice = (
+          totalPrice / this.tableData.length
+        ).toFixed(2);
+        this.overallProductDetails.avgRatting =
+          totalRating / this.tableData.length;
 
-      this.overallProductDetails.totalRevenue = totalRevenue / 30;
-      this.overallProductDetails.avgRevenue = (
-        (totalRevenue / this.tableData.length)/100
-      ).toFixed(2);
-      const oppScore = totalNetProfit / this.overallProductDetails.avgRatting;
-      this.overallProductDetails.oppScore = this.remapNumber(oppScore, 100, 9000, 1, 10).toFixed(1);
-    });
+        this.overallProductDetails.totalRevenue = totalRevenue / 30;
+        this.overallProductDetails.avgRevenue = (
+          totalRevenue /
+          this.tableData.length /
+          100
+        ).toFixed(2);
+        const oppScore = totalNetProfit / this.overallProductDetails.avgRatting;
+        this.overallProductDetails.oppScore = this.remapNumber(
+          oppScore,
+          100,
+          9000,
+          1,
+          10
+        ).toFixed(1);
+      });
   }
 
   remapNumber(number, oldMin, oldMax, newMin, newMax) {
     const oldRange = oldMax - oldMin;
     const newRange = newMax - newMin;
-    let newValue = ((number - oldMin) * newRange / oldRange) + newMin;
-    
+    let newValue = ((number - oldMin) * newRange) / oldRange + newMin;
+
     // Clamp the value within the desired range
     if (newValue < newMin) {
       newValue = newMin;
     } else if (newValue > newMax) {
       newValue = newMax;
     }
-    
+
     return newValue;
   }
 
@@ -230,14 +249,11 @@ export class DataComponent implements OnInit, OnDestroy {
       product: {
         ...product,
         language: this.commonService.lan,
-        country: this.commonService.country
-      }
+        country: this.commonService.country,
+      },
     };
     this.http
-      .post(
-        'https://usr2.uneekli.com/products',
-        requestObj
-      )
+      .post('https://usr2.uneekli.com/products', requestObj)
       .pipe(
         map((res: any) => res.response),
         catchError((err) => of('error'))
@@ -281,7 +297,7 @@ export class DataComponent implements OnInit, OnDestroy {
     });
   }
 
-  loadMore(){
+  loadMore() {
     this.page = this.page + 1;
     this.search(this.keyword, this.page);
   }

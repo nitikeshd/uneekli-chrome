@@ -31,6 +31,11 @@ export class HomeComponent implements OnInit {
   overallProductDetails = new OverallProductDetails();
   lang = 'English';
   searchKey = '';
+  currencyMap = {
+    ae: 'ADE',
+    sa: 'SAR',
+    eg: 'EGP',
+  };
   constructor(
     public commonService: CommonService,
     private route: ActivatedRoute,
