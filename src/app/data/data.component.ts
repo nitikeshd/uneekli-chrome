@@ -42,7 +42,7 @@ export class DataComponent implements OnInit, OnDestroy {
   page = 1;
   keyword = '';
   currencyMap = {
-    ae: 'ADE',
+    ae: 'AED',
     sa: 'SAR',
     eg: 'EGP',
   };

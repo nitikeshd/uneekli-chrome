@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   lang = 'English';
   searchKey = '';
   currencyMap = {
-    ae: 'ADE',
+    ae: 'AED',
     sa: 'SAR',
     eg: 'EGP',
   };
