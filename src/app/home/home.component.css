@@ -36,3 +36,11 @@
   .dropdown option {
     padding: 5px;
   }
+
+  .mat-drawer-content {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+  }
