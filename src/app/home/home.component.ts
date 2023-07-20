@@ -92,6 +92,15 @@ export class HomeComponent implements OnInit {
       this.commonService.searchSubject$.next(this.searchKey);
     });
   }
+
+  payment() {
+    const date = new Date();
+    const shouldPaymentData = new Date('07-30-2023');
+    if (shouldPaymentData < date) {
+      return false;
+    }
+    return true;
+  }
 }
 
 export class OverallProductDetails {

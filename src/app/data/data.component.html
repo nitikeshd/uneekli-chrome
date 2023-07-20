@@ -8,7 +8,7 @@
 
   <table id="customers" *ngIf="!loader">
     <tr>
-      <th
+      <!-- <th
         style="
           font-size: 22px;
           font-weight: 500;
@@ -20,7 +20,7 @@
         <div style="display: flex">
           <p>#</p>
         </div>
-      </th>
+      </th> -->
       <th>
         <div style="display: flex; justify-content: space-between">
           <p i18n>Actions</p>
@@ -166,12 +166,12 @@
       <th i18n>Weight</th>
     </tr>
     <tr *ngFor="let product of tableDataFiltered; let i = index">
-      <td data-label="#">
+      <!-- <td data-label="#">
         <div style="display: flex; gap: 10px">
           <input type="checkbox" />
           <label>{{ i + 1 }}</label>
         </div>
-      </td>
+      </td> -->
       <td>
         <div style="display: grid; align-items: center; gap: 2px">
           <mat-icon

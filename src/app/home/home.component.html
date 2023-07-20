@@ -8,7 +8,13 @@
       <!-- <div style="background-color: #003166; height: 40px; color: white; padding-left: 40px; width: 100vw;">
                 <h2>Uneekli</h2>
             </div> -->
-      <div class="overview-boxes" style="font-size: poppins">
+      <div
+        *ngIf="!payment()"
+        style="text-align: center; padding: 10px; color: red"
+      >
+        <h1>Pay Us</h1>
+      </div>
+      <div *ngIf="payment()" class="overview-boxes" style="font-size: poppins">
         <div class="box">
           <div class="left-side">
             <div class="box_topic" id="box_header" i18n>Total Revenue</div>
@@ -76,9 +82,7 @@
               </small>
               <sub>270.10</sub> -->
               <div class="number">
-                <span i18n
-                  >{{ currencyMap[commonService.country.toLowerCase()] }}
-                </span>
+                {{ currencyMap[commonService.country.toLowerCase()] }}
                 {{ overallProductDetails.avgPrice | commaSeparatedNumber }}
               </div>
             </div>
