@@ -33,3 +33,28 @@
     overflow-y: auto;
     height: calc(100vh - 170px);
 }
+@keyframes loading {
+  0% {
+      background-position: -468px 0
+  }
+  100% {
+      background-position: 1000px 0
+  }
+}
+
+.loading-table {
+  position: relative;
+  border-collapse: collapse;
+  table-layout: fixed; /* This ensures that the table does not expand beyond its container */
+}
+
+.loading-table td {
+  height: 70px;
+  border: 1px solid #ddd;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  animation: loading 1s linear infinite;
+  width: 2000px; /* Specify the fixed width here */
+  box-sizing: border-box;
+}

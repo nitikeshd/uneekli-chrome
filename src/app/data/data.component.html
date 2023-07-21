@@ -1,13 +1,56 @@
 <div class="data">
-  <div *ngIf="loader" style="display: grid; place-items: center; height: 90vh">
-    <div class="loader"></div>
+  <div *ngIf="loader">
+    <table class="loading-table">
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
   </div>
   <div *ngIf="error" style="display: grid; place-items: center; height: 90vh">
     <h1 i18n>Please try again after some time.</h1>
   </div>
 
   <table id="customers" *ngIf="!loader">
-    <tr>
+    <tr style="text-align: center">
       <!-- <th
         style="
           font-size: 22px;
@@ -22,7 +65,7 @@
         </div>
       </th> -->
       <th>
-        <div style="display: flex; justify-content: space-between">
+        <div>
           <p i18n>Actions</p>
         </div>
       </th>
@@ -39,7 +82,7 @@
         </div>
       </th>
       <th>
-        <div style="display: flex; justify-content: space-between">
+        <div>
           <p i18n>Brand</p>
         </div>
       </th>
@@ -52,7 +95,7 @@
                 </div>
             </th> -->
       <th>
-        <div style="display: flex; justify-content: space-between">
+        <div>
           <p i18n>Category</p>
         </div>
       </th>

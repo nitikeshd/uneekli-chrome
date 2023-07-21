@@ -4,10 +4,6 @@
   "newProjectRoot": "projects",
   "projects": {
     "chrome-base": {
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {"ar-AE": "src/locale/messages.es.xlf" }
-      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -17,7 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": ["ar-AE"],
             "outputPath": "dist/chrome-base",
             "index": "src/index.html",
             "main": "src/main.ts",
