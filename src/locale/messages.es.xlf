@@ -136,7 +136,7 @@
       </trans-unit>
       <trans-unit id="3193976279273491157" datatype="html">
         <source>Actions</source>
-        <target>أجراءات</target>
+        <target>إجراءات</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">34</context>
@@ -144,7 +144,7 @@
       </trans-unit>
       <trans-unit id="1675111088809005753" datatype="html">
         <source>Product Name</source>
-        <target>اسم المنتج</target>
+        <target>إسم المنتج</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">39</context>
@@ -152,7 +152,7 @@
       </trans-unit>
       <trans-unit id="2559885490456050359" datatype="html">
         <source>Brand</source>
-        <target>ماركة</target>
+        <target>الماركة</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">51</context>
@@ -160,7 +160,7 @@
       </trans-unit>
       <trans-unit id="1806667489382256324" datatype="html">
         <source>Category</source>
-        <target>فئة</target>
+        <target>فئة المنتج</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">64</context>
@@ -176,7 +176,7 @@
       </trans-unit>
       <trans-unit id="8894377483833272091" datatype="html">
         <source>Price</source>
-        <target>سعر</target>
+        <target>سعر المنتج</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">78</context>
@@ -184,7 +184,7 @@
       </trans-unit>
       <trans-unit id="6107655087673219605" datatype="html">
         <source>Fba Fee</source>
-        <target>رسوم FBA</target>
+        <target>رسوم أمازون</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">95</context>
@@ -216,7 +216,7 @@
       </trans-unit>
       <trans-unit id="4847135741111139699" datatype="html">
         <source>No. Reviews</source>
-        <target>عدد المراجعات</target>
+        <target>عدد الملاحظات</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">143</context>
@@ -312,7 +312,7 @@
       </trans-unit>
       <trans-unit id="2251760180975934951" datatype="html">
         <source>Mo. Sales</source>
-        <target>Mo. المبيعات</target>
+        <target>المبيعات الشهرية</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">166</context>
@@ -320,7 +320,7 @@
       </trans-unit>
       <trans-unit id="884971468046971124" datatype="html">
         <source>D. Sales</source>
-        <target>D. المبيعات</target>
+        <target>المبيعات اليومية</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">167</context>
@@ -328,7 +328,7 @@
       </trans-unit>
       <trans-unit id="1696114019195649117" datatype="html">
         <source>Mo Revenue</source>
-        <target>Mo. الإيرادات</target>
+        <target>الإيرادات الشهرية</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">168</context>
@@ -368,7 +368,7 @@
       </trans-unit>
       <trans-unit id="3392114061661490939" datatype="html">
         <source>Dimensions</source>
-        <target>أبعاد</target>
+        <target>أبعاد المنتج</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">173</context>
@@ -376,18 +376,98 @@
       </trans-unit>
       <trans-unit id="5848348023107769657" datatype="html">
         <source>Weight</source>
-        <target>وزن</target>
+        <target>وزن المنتج</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
           <context context-type="linenumber">174</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4715491471352087288" datatype="html">
+     <trans-unit id="4406519988559023160" datatype="html">
         <source>Load more Result</source>
         <target>تحميل المزيد من النتائج</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/data/data.component.html</context>
-          <context context-type="linenumber">290</context>
+          <context context-type="linenumber">334,336</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7039364048684866313" datatype="html">
+        <source>Average Selling Graph</source>
+        <target>متوسط الرسم البياني</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="2841015649953314785" datatype="html">
+        <source>No of Images</source>
+        <target>عدد الصور</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3382526288876871166" datatype="html">
+        <source>Launch Date</source>
+         <target>تاريخ إطلاق المنتج</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1200959888291970825" datatype="html">
+        <source>Bsr</source>
+        <target>أفضل رتبة البائع (BSR)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7039364048684866313" datatype="html">
+        <source>Average Selling Graph</source>
+        <target>متوسط الرسم البياني</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6289378953828442761" datatype="html">
+        <source>Country of Launch</source>
+        <target>دولة إطلاق المنتج</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5613794114123825922" datatype="html">
+        <source>Click Count</source>
+        <target>عدد النقرات</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">154</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6491914625312533312" datatype="html">
+        <source>Size Tier</source>
+         <target>مستوى الحجم</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">160</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3228987374257447860" datatype="html">
+        <source>Product Price</source>
+        <target>سعر المنتج</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8976093530888093629" datatype="html">
+        <source>Brand Name</source>
+        <target>الماركة</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/data/data.component.html</context>
+          <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
     </body>

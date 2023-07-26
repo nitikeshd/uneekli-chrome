@@ -83,34 +83,17 @@
       </th>
       <th>
         <div>
-          <p i18n>Brand</p>
+          <p i18n>No of Images</p>
         </div>
       </th>
-      <!-- <th>
-                <div style="display: flex; justify-content: space-between;">
-                    <p>Title</p> <img src="assets/img/Group 3.png" style="float: right;
-                padding-right: 7px;
-                width: 1rem;
-                opacity: 0.7;">
-                </div>
-            </th> -->
       <th>
         <div>
-          <p i18n>Category</p>
+          <p i18n>Brand Name</p>
         </div>
       </th>
-      <!-- <th>
-                <div style="display: flex; justify-content: space-between;">
-                    <p>BuyBox</p> <img src="assets/img/Group 3.png" style="float: right;
-                padding-right: 7px;
-                width: 1rem;
-                opacity: 0.7;">
-                </div>
-            </th> -->
-      <th i18n>Discounted</th>
       <th>
         <div style="display: flex; justify-content: space-between">
-          <p i18n>Price</p>
+          <p i18n>Product Price</p>
           <mat-icon
             aria-hidden="false"
             aria-label="add circle"
@@ -123,6 +106,23 @@
             style="float: right; padding-right: 7px; width: 2rem; opacity: 0.7"
             (click)="sortData('price')"
           /> -->
+        </div>
+      </th>
+      <th i18n>Mo. Sales</th>
+      <th i18n>D. Sales</th>
+      <th i18n>Mo Revenue</th>
+      <th i18n>Launch Date</th>
+      <th i18n>Bsr</th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
+          <p i18n>Net Profit</p>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
         </div>
       </th>
       <th>
@@ -139,6 +139,31 @@
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
+          <p i18n>No. Reviews</p>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add circle"
+            fontIcon="sort"
+            matTooltip="Sort Products"
+            (click)="sortData('price')"
+          ></mat-icon>
+        </div>
+      </th>
+      <th i18n>Average Selling Graph</th>
+      <th i18n>Country of Launch</th>
+      <th i18n>Click Count</th>
+      <th>
+        <div>
+          <p i18n>Category</p>
+        </div>
+      </th>
+      <th i18n>Size Tier</th>
+      <th i18n>Dimensions</th>
+      <th i18n>Weight</th>
+      <th i18n>Seller Type</th>
+      <th i18n>Discounted</th>
+      <th>
+        <div style="display: flex; justify-content: space-between">
           <p i18n>Discount</p>
           <mat-icon
             aria-hidden="false"
@@ -151,31 +176,7 @@
       </th>
       <th>
         <div style="display: flex; justify-content: space-between">
-          <p i18n>Net Profit</p>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="add circle"
-            fontIcon="sort"
-            matTooltip="Sort Products"
-            (click)="sortData('price')"
-          ></mat-icon>
-        </div>
-      </th>
-      <th>
-        <div style="display: flex; justify-content: space-between">
           <p i18n>Rating</p>
-          <mat-icon
-            aria-hidden="false"
-            aria-label="add circle"
-            fontIcon="sort"
-            matTooltip="Sort Products"
-            (click)="sortData('price')"
-          ></mat-icon>
-        </div>
-      </th>
-      <th>
-        <div style="display: flex; justify-content: space-between">
-          <p i18n>No. Reviews</p>
           <mat-icon
             aria-hidden="false"
             aria-label="add circle"
@@ -198,17 +199,14 @@
       <th i18n>SP</th>
       <th i18n>Storage Fee</th>
 
-      <th i18n>Mo. Sales</th>
-      <th i18n>D. Sales</th>
-      <th i18n>Mo Revenue</th>
       <th i18n>Rank</th>
       <th i18n>LQS</th>
-      <th i18n>Seller Type</th>
       <th i18n>Sellers</th>
-      <th i18n>Dimensions</th>
-      <th i18n>Weight</th>
     </tr>
-    <tr *ngFor="let product of tableDataFiltered; let i = index">
+    <tr
+      *ngFor="let product of tableDataFiltered; let i = index"
+      style="text-align: center"
+    >
       <!-- <td data-label="#">
         <div style="display: flex; gap: 10px">
           <input type="checkbox" />
@@ -267,35 +265,48 @@
           </div>
         </div>
       </td>
-
+      <td>-</td>
       <td data-label="Brand">
         {{ product.brand }}
       </td>
-      <td data-label="Category">{{ product.category.substring(0, 25) }}</td>
-      <!-- <td data-label="Buy Box">{{product.buyBox}}</td> -->
-      <td data-label="Sales">{{ product.sales }}</td>
       <td data-label="Price">
         <small style="font-size: 10px; opacity: 0.9"
           >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
         >{{ product.price }}
+      </td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>
+        <small style="font-size: 10px; opacity: 0.9"
+          >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
+        >{{ product.netProfit }}
       </td>
       <td data-label="fba">
         <small style="font-size: 10px; opacity: 0.9"
           >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
         >{{ product.fbaFee }}
       </td>
+      <td>{{ product.totalReviews }}</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td data-label="Category">{{ product.category.substring(0, 25) }}</td>
+      <td>-</td>
+
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td data-label="Sales">{{ product.sales }}</td>
       <td data-label="sales">
         <small style="font-size: 10px; opacity: 0.9"
           >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
         >{{ product.sale }}
       </td>
-      <td>
-        <small style="font-size: 10px; opacity: 0.9"
-          >{{ currencyMap[commonService.country.toLowerCase()] }}&nbsp;</small
-        >{{ product.netProfit }}
-      </td>
       <td>{{ product.rating }}</td>
-      <td>{{ product.totalReviews }}</td>
+
       <td>{{ product.amazonChoice }}</td>
       <td>{{ product.bestSeller }}</td>
       <td>{{ product.amazonPrime }}</td>
@@ -310,16 +321,10 @@
       <td>-</td>
       <td>-</td>
       <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
     </tr>
   </table>
 </div>
-<footer>
+<footer style="height: 100px; padding-top: 10px">
   <div class="container">
     <div class="row">
       <div class="col">
