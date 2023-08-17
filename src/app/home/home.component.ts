@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit {
 
   payment() {
     const date = new Date();
-    const shouldPaymentData = new Date('08-20-2023');
+    const shouldPaymentData = new Date('08-30-2023');
     if (shouldPaymentData < date) {
       return false;
     }
